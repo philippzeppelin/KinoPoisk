@@ -1,0 +1,6 @@
+framework module Pods_KinoPoisk {
+  umbrella header "Pods-KinoPoisk-umbrella.h"
+
+  export *
+  module * { export * }
+}
