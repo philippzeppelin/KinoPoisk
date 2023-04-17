@@ -80,15 +80,23 @@
 		E7B5768629E47EBD00F01FA8 /* KinoPoisk */ = {
 			isa = PBXGroup;
 			children = (
+				E7B5769C29EDD9B100F01FA8 /* App */,
+				E7B5768B29E47EBD00F01FA8 /* ViewController.swift */,
+			);
+			path = KinoPoisk;
+			sourceTree = "<group>";
+		};
+		E7B5769C29EDD9B100F01FA8 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */,
 				E7B5768929E47EBD00F01FA8 /* SceneDelegate.swift */,
-				E7B5768B29E47EBD00F01FA8 /* ViewController.swift */,
-				E7B5768D29E47EBD00F01FA8 /* Main.storyboard */,
 				E7B5769029E47EBE00F01FA8 /* Assets.xcassets */,
+				E7B5768D29E47EBD00F01FA8 /* Main.storyboard */,
 				E7B5769229E47EBE00F01FA8 /* LaunchScreen.storyboard */,
 				E7B5769529E47EBE00F01FA8 /* Info.plist */,
 			);
-			path = KinoPoisk;
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,7 +368,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZFRPQ8YP88;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KinoPoisk/Info.plist;
+				INFOPLIST_FILE = KinoPoisk/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -389,7 +397,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZFRPQ8YP88;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = KinoPoisk/Info.plist;
+				INFOPLIST_FILE = KinoPoisk/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
