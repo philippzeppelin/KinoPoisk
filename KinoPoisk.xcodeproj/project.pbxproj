@@ -28,6 +28,7 @@
 		E7B5769029E47EBE00F01FA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7B5769329E47EBE00F01FA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7B5769529E47EBE00F01FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7B5769F29EDDE5300F01FA8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +81,10 @@
 		E7B5768629E47EBD00F01FA8 /* KinoPoisk */ = {
 			isa = PBXGroup;
 			children = (
+				E7B5769D29EDDB1F00F01FA8 /* TableViewModule */,
+				E7B5769E29EDDC2E00F01FA8 /* CollectionViewModule */,
 				E7B5769C29EDD9B100F01FA8 /* App */,
-				E7B5768B29E47EBD00F01FA8 /* ViewController.swift */,
+				E7B5769F29EDDE5300F01FA8 /* .swiftlint.yml */,
 			);
 			path = KinoPoisk;
 			sourceTree = "<group>";
@@ -97,6 +100,45 @@
 				E7B5769529E47EBE00F01FA8 /* Info.plist */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		E7B5769D29EDDB1F00F01FA8 /* TableViewModule */ = {
+			isa = PBXGroup;
+			children = (
+				E7B576A029EDDF3D00F01FA8 /* Model */,
+				E7B576A129EDDF4300F01FA8 /* View */,
+				E7B576A229EDDF4900F01FA8 /* Presenter */,
+			);
+			path = TableViewModule;
+			sourceTree = "<group>";
+		};
+		E7B5769E29EDDC2E00F01FA8 /* CollectionViewModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CollectionViewModule;
+			sourceTree = "<group>";
+		};
+		E7B576A029EDDF3D00F01FA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7B576A129EDDF4300F01FA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E7B5768B29E47EBD00F01FA8 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E7B576A229EDDF4900F01FA8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
