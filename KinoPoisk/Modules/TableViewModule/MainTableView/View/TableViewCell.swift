@@ -56,9 +56,33 @@ class TableViewCell: UITableViewCell {
         return label
     }()
 
-    private let movieLength: UILabel = {
+    private let movieLengthLabel: UILabel = {
         let label = UILabel()
         label.text = "1:30"
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let countriesLabel: UILabel = {
+        let label = UILabel()
+        label.text = "США"
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let ratingVoteCountLabel: UILabel = {
+        let label = UILabel()
+        label.text = "66 988"
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let movieYearLabel: UILabel = {
+        let label = UILabel()
+        label.text = "(2023)"
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -86,8 +110,10 @@ class TableViewCell: UITableViewCell {
         cellView.addSubview(movieNameEnLabel)
         cellView.addSubview(genresLabel)
         cellView.addSubview(ratingLabel)
-        cellView.addSubview(movieLength)
-
+        cellView.addSubview(movieLengthLabel)
+        cellView.addSubview(ratingVoteCountLabel)
+        cellView.addSubview(movieYearLabel)
+        cellView.addSubview(countriesLabel)
     }
 
     private func setupConstraints() {
@@ -114,8 +140,17 @@ class TableViewCell: UITableViewCell {
             cellView.bottomAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 10),
             ratingLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
 
-            cellView.rightAnchor.constraint(equalTo: movieLength.rightAnchor, constant: 10),
-            cellView.bottomAnchor.constraint(equalTo: movieLength.bottomAnchor, constant: 10)
+            cellView.rightAnchor.constraint(equalTo: movieLengthLabel.rightAnchor, constant: 10),
+            cellView.bottomAnchor.constraint(equalTo: movieLengthLabel.bottomAnchor, constant: 10),
+
+            ratingVoteCountLabel.leftAnchor.constraint(equalTo: ratingLabel.rightAnchor, constant: 10),
+            cellView.bottomAnchor.constraint(equalTo: ratingVoteCountLabel.bottomAnchor, constant: 10),
+
+            movieYearLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: 3),
+            movieYearLabel.leftAnchor.constraint(equalTo: movieNameEnLabel.rightAnchor, constant: 5),
+
+            movieLengthLabel.leftAnchor.constraint(equalTo: countriesLabel.rightAnchor, constant: 5),
+            cellView.bottomAnchor.constraint(equalTo: countriesLabel.bottomAnchor, constant: 10)
         ])
     }
 }
