@@ -48,6 +48,22 @@ class TableViewCell: UITableViewCell {
         return label
     }()
 
+    private let ratingLabel: UILabel = {
+        let label = UILabel()
+        label.text = "7.7"
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let movieLength: UILabel = {
+        let label = UILabel()
+        label.text = "1:30"
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -69,6 +85,9 @@ class TableViewCell: UITableViewCell {
         cellView.addSubview(movieNameRuLabel)
         cellView.addSubview(movieNameEnLabel)
         cellView.addSubview(genresLabel)
+        cellView.addSubview(ratingLabel)
+        cellView.addSubview(movieLength)
+
     }
 
     private func setupConstraints() {
@@ -80,7 +99,7 @@ class TableViewCell: UITableViewCell {
 
             posterImageView.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 5),
             posterImageView.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 5),
-            posterImageView.widthAnchor.constraint(equalToConstant: 65),
+            posterImageView.widthAnchor.constraint(equalToConstant: 85),
             cellView.bottomAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 5),
 
             movieNameRuLabel.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 10),
@@ -91,7 +110,12 @@ class TableViewCell: UITableViewCell {
 
             genresLabel.topAnchor.constraint(equalTo: movieNameEnLabel.bottomAnchor, constant: 3),
             genresLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
-            
+
+            cellView.bottomAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 10),
+            ratingLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
+
+            cellView.rightAnchor.constraint(equalTo: movieLength.rightAnchor, constant: 10),
+            cellView.bottomAnchor.constraint(equalTo: movieLength.bottomAnchor, constant: 10)
         ])
     }
 }
