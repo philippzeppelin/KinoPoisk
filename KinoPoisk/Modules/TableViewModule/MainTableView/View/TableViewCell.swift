@@ -26,7 +26,8 @@ class TableViewCell: UITableViewCell {
 
     private let movieNameRuLabel: UILabel = {
         let label = UILabel()
-        label.text = "Название кино"
+        label.text = "Джон Уик 4"
+        label.font = UIFont(name: "Arial Bold", size: 20)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -34,7 +35,8 @@ class TableViewCell: UITableViewCell {
 
     private let movieNameEnLabel: UILabel = {
         let label = UILabel()
-        label.text = "MovieName"
+        label.text = "John Wick: Chapter 4"
+        label.font = UIFont(name: "Arial", size: 18)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -42,8 +44,10 @@ class TableViewCell: UITableViewCell {
 
     private let genresLabel: UILabel = {
         let label = UILabel()
-        label.text = "драма"
-        label.textColor = .white
+        label.text = "боевик, триллер, криминал"
+        label.font = UIFont(name: "Arial", size: 18)
+        label.textColor = .gray
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -51,6 +55,7 @@ class TableViewCell: UITableViewCell {
     private let ratingLabel: UILabel = {
         let label = UILabel()
         label.text = "7.7"
+        label.font = UIFont(name: "Arial", size: 20)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -58,7 +63,8 @@ class TableViewCell: UITableViewCell {
 
     private let movieLengthLabel: UILabel = {
         let label = UILabel()
-        label.text = "1:30"
+        label.text = "2:49"
+        label.font = UIFont(name: "Arial", size: 18)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -66,7 +72,8 @@ class TableViewCell: UITableViewCell {
 
     private let countriesLabel: UILabel = {
         let label = UILabel()
-        label.text = "США"
+        label.text = "США, Германия"
+        label.font = UIFont(name: "Arial", size: 18)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -75,7 +82,8 @@ class TableViewCell: UITableViewCell {
     private let ratingVoteCountLabel: UILabel = {
         let label = UILabel()
         label.text = "66 988"
-        label.textColor = .white
+        label.font = UIFont(name: "Arial", size: 17)
+        label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -134,7 +142,7 @@ class TableViewCell: UITableViewCell {
             movieNameEnLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: 3),
             movieNameEnLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
 
-            genresLabel.topAnchor.constraint(equalTo: movieNameEnLabel.bottomAnchor, constant: 3),
+            genresLabel.topAnchor.constraint(equalTo: movieNameEnLabel.bottomAnchor, constant: 2),
             genresLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
 
             cellView.bottomAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 10),
@@ -143,7 +151,7 @@ class TableViewCell: UITableViewCell {
             cellView.rightAnchor.constraint(equalTo: movieLengthLabel.rightAnchor, constant: 10),
             cellView.bottomAnchor.constraint(equalTo: movieLengthLabel.bottomAnchor, constant: 10),
 
-            ratingVoteCountLabel.leftAnchor.constraint(equalTo: ratingLabel.rightAnchor, constant: 10),
+            ratingVoteCountLabel.leftAnchor.constraint(equalTo: ratingLabel.rightAnchor, constant: 3),
             cellView.bottomAnchor.constraint(equalTo: ratingVoteCountLabel.bottomAnchor, constant: 10),
 
             movieYearLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: 3),

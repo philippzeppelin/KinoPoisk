@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.cellIdentifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -20,7 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .black
+        view.backgroundColor = .clear
 
         setup()
 
