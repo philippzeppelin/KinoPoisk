@@ -24,6 +24,22 @@ class TableViewCell: UITableViewCell {
         return imageView
     }()
 
+    private let movieNameRuLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Название кино"
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let movieNameEnLabel: UILabel = {
+        let label = UILabel()
+        label.text = "MovieName"
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -41,20 +57,28 @@ class TableViewCell: UITableViewCell {
 
     private func setupInterface() {
         self.addSubview(cellView)
-        self.addSubview(posterImageView)
+        cellView.addSubview(posterImageView)
+        cellView.addSubview(movieNameRuLabel)
+        cellView.addSubview(movieNameEnLabel)
     }
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            cellView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            cellView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 5),
-            self.rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: 5),
-            self.bottomAnchor.constraint(equalTo: cellView.bottomAnchor, constant: 5),
+            cellView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            cellView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8),
+            self.rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: 8),
+            self.bottomAnchor.constraint(equalTo: cellView.bottomAnchor),
 
-            posterImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 3),
-            posterImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 3),
+            posterImageView.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 5),
+            posterImageView.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 5),
+            posterImageView.widthAnchor.constraint(equalToConstant: 65),
+            cellView.bottomAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 5),
 
+            movieNameRuLabel.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 10),
+            movieNameRuLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
 
+            movieNameEnLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: 3),
+            movieNameEnLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10)
         ])
     }
 }
