@@ -40,6 +40,14 @@ class TableViewCell: UITableViewCell {
         return label
     }()
 
+    private let genresLabel: UILabel = {
+        let label = UILabel()
+        label.text = "драма"
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -60,6 +68,7 @@ class TableViewCell: UITableViewCell {
         cellView.addSubview(posterImageView)
         cellView.addSubview(movieNameRuLabel)
         cellView.addSubview(movieNameEnLabel)
+        cellView.addSubview(genresLabel)
     }
 
     private func setupConstraints() {
@@ -78,7 +87,11 @@ class TableViewCell: UITableViewCell {
             movieNameRuLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
 
             movieNameEnLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: 3),
-            movieNameEnLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10)
+            movieNameEnLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
+
+            genresLabel.topAnchor.constraint(equalTo: movieNameEnLabel.bottomAnchor, constant: 3),
+            genresLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
+            
         ])
     }
 }
