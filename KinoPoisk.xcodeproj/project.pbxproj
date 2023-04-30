@@ -16,6 +16,7 @@
 		E7B5769429E47EBE00F01FA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7B5769229E47EBE00F01FA8 /* LaunchScreen.storyboard */; };
 		E7B576A429EDE14900F01FA8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576A329EDE14900F01FA8 /* MainTabBarController.swift */; };
 		E7B576A929EDE3D200F01FA8 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576A829EDE3D200F01FA8 /* CollectionView.swift */; };
+		E7B576E429FE64A600F01FA8 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576E329FE64A600F01FA8 /* Movies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		E7B5769F29EDDE5300F01FA8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		E7B576A329EDE14900F01FA8 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E7B576A829EDE3D200F01FA8 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		E7B576E329FE64A600F01FA8 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +87,8 @@
 		E7B5768629E47EBD00F01FA8 /* KinoPoisk */ = {
 			isa = PBXGroup;
 			children = (
-				E7B576A529EDE38C00F01FA8 /* Modules */,
 				E7B5769C29EDD9B100F01FA8 /* App */,
+				E7B576A529EDE38C00F01FA8 /* Modules */,
 				E7B5769F29EDDE5300F01FA8 /* .swiftlint.yml */,
 			);
 			path = KinoPoisk;
@@ -128,6 +130,7 @@
 		E7B576A029EDDF3D00F01FA8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E7B576E329FE64A600F01FA8 /* Movies.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				E7B5768C29E47EBD00F01FA8 /* ViewController.swift in Sources */,
 				E7B576A929EDE3D200F01FA8 /* CollectionView.swift in Sources */,
 				E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */,
+				E7B576E429FE64A600F01FA8 /* Movies.swift in Sources */,
 				E7B576A429EDE14900F01FA8 /* MainTabBarController.swift in Sources */,
 				E7B5768A29E47EBD00F01FA8 /* SceneDelegate.swift in Sources */,
 			);

@@ -16,7 +16,6 @@ class MainTabBarController: UITabBarController {
     }
 }
 
-
 //        viewControllers = [
 //            generateNavigationController(rootViewController: photosVC, title: "Photos", image: UIImage(systemName: "rectangle.fill.on.rectangle.fill")),
 //            generateNavigationController(rootViewController: ViewController(), title: "Favorites", image: UIImage(systemName: "heart.fill"))
@@ -30,7 +29,6 @@ class MainTabBarController: UITabBarController {
 //        navigationVC.navigationBar.scrollEdgeAppearance = navigationVC.navigationBar.standardAppearance
 //        return navigationVC
 //    }
-
 
 /*
 class MainTabBarController: UITabBarController {
