@@ -19,6 +19,8 @@
 		E7B576E429FE64A600F01FA8 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576E329FE64A600F01FA8 /* Movies.swift */; };
 		E7B576E629FE6D1A00F01FA8 /* TableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576E529FE6D1A00F01FA8 /* TableViewPresenter.swift */; };
 		E7B576EC29FE6EEE00F01FA8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576EB29FE6EEE00F01FA8 /* TableViewCell.swift */; };
+		E7B576F229FFA6DA00F01FA8 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576F129FFA6DA00F01FA8 /* NetworkDataFetcher.swift */; };
+		E7B576F429FFA90000F01FA8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576F329FFA90000F01FA8 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		E7B576E329FE64A600F01FA8 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		E7B576E529FE6D1A00F01FA8 /* TableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPresenter.swift; sourceTree = "<group>"; };
 		E7B576EB29FE6EEE00F01FA8 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		E7B576F129FFA6DA00F01FA8 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		E7B576F329FFA90000F01FA8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				E7B5769C29EDD9B100F01FA8 /* App */,
+				E7B576F029FFA6C500F01FA8 /* NetworkService */,
 				E7B576A529EDE38C00F01FA8 /* Modules */,
 				E7B576E729FE6D4600F01FA8 /* UI */,
 				E7B5769F29EDDE5300F01FA8 /* .swiftlint.yml */,
@@ -200,8 +205,33 @@
 		E7B576EA29FE6E7900F01FA8 /* DetailTableView */ = {
 			isa = PBXGroup;
 			children = (
+				E7B576EE29FFA48500F01FA8 /* Presenter */,
+				E7B576ED29FFA47E00F01FA8 /* View */,
 			);
 			path = DetailTableView;
+			sourceTree = "<group>";
+		};
+		E7B576ED29FFA47E00F01FA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E7B576EE29FFA48500F01FA8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E7B576F029FFA6C500F01FA8 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				E7B576F329FFA90000F01FA8 /* NetworkService.swift */,
+				E7B576F129FFA6DA00F01FA8 /* NetworkDataFetcher.swift */,
+			);
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,10 +351,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7B576F429FFA90000F01FA8 /* NetworkService.swift in Sources */,
 				E7B5768C29E47EBD00F01FA8 /* ViewController.swift in Sources */,
 				E7B576EC29FE6EEE00F01FA8 /* TableViewCell.swift in Sources */,
 				E7B576A929EDE3D200F01FA8 /* CollectionView.swift in Sources */,
 				E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */,
+				E7B576F229FFA6DA00F01FA8 /* NetworkDataFetcher.swift in Sources */,
 				E7B576E429FE64A600F01FA8 /* Movies.swift in Sources */,
 				E7B576A429EDE14900F01FA8 /* MainTabBarController.swift in Sources */,
 				E7B5768A29E47EBD00F01FA8 /* SceneDelegate.swift in Sources */,

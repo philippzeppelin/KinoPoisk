@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol MainTableViewProtocol: AnyObject {
+    func success()
+    func failure()
+}
