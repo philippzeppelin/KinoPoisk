@@ -17,13 +17,13 @@ struct Films: Codable {
     var nameRu: String
     var nameEn: String?
     var year: String
-    var filLength: String
+    var filmLength: String
     var countries: [Countries]
     var genres: [Genres]
     var rating: String
     var ratingVoteCount: Int
     var posterUrl: String
-    var posterURLPreview: String
+    var posterURLPreview: String?
 }
 
 struct Countries: Codable {
@@ -31,5 +31,5 @@ struct Countries: Codable {
 }
 
 struct Genres: Codable {
-    var genre: [String]
+    var genre: String
 }

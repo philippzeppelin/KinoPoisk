@@ -7,53 +7,50 @@
 
 import Foundation
 
-protocol NetworkServiceProtocol {
-    func request(searchTerm: String, completion: @escaping (Data?, Error?) -> Void)
-    func prepareHeader() -> [String: String]?
-    func prepareParameters(searchTerm: String?) -> [String: String]
-    func url(params: [String: String]) -> URL
-    func createDataTask(from request: URLRequest, completion: @escaping (Data?, Error?) -> Void) -> URLSessionDataTask
-}
+class NetworkService {
+    private var task: URLSessionDataTask?
 
-class NetworkService: NetworkServiceProtocol {
-    func request(searchTerm: String, completion: @escaping (Data?, Error?) -> Void) {
-        let parameters = self.prepareParameters(searchTerm: searchTerm)
-        let url = self.url(params: parameters)
+    func getPopularMoviesData(page: Int, completion: @escaping (Result<Movies, Error>) -> Void) {
+        let popularMoviesURL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?page=1"
+        print("Лена ")
+        guard let url = URL(string: popularMoviesURL) else { return }
         var request = URLRequest(url: url)
-        request.allHTTPHeaderFields = prepareHeader()
+
+        request.allHTTPHeaderFields = ["X-API-KEY": "ca070bb1-cb28-4f8a-912c-5bab25ae23e7"]
         request.httpMethod = "GET"
-        let task = createDataTask(from: request, completion: completion)
-        task.resume()
-    }
 
-    func prepareHeader() -> [String: String]? {
-        var headers = [String: String]()
-        headers["accept"] = "accept: application/json"
-        headers["X-API-KEY"] = "ca070bb1-cb28-4f8a-912c-5bab25ae23e7"
-        return headers
-    }
+        // create URLSession
+        task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                print("DataTask error: \(error.localizedDescription)")
+            }
 
-    func prepareParameters(searchTerm: String?) -> [String: String] {
-        var parameters = [String: String]()
-        parameters["query"] = searchTerm // скорее всего поменять в url данные
-        parameters["page"] = String(1)
-        return parameters
-    }
+            guard let response = response as? HTTPURLResponse else {
+                print("Empty Response") // добавить коды response
+                return
+            }
 
-    func url(params: [String: String]) -> URL {
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = "kinopoiskapiunofficial.tech"
-        components.path = "/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=1"
-        components.queryItems = params.map { URLQueryItem(name: $0, value: $1) }
-        return components.url!
-    }
+            guard let data = data else {
+                print("Empty data")
+                return
+            }
 
-    func createDataTask(from request: URLRequest, completion: @escaping (Data?, Error?) -> Void) -> URLSessionDataTask {
-        return URLSession.shared.dataTask(with: request) { (data, _, error) in
-            DispatchQueue.main.async {
-                completion(data, error)
+            do {
+                // Parse the data
+                let decoder = JSONDecoder()
+                let model = try decoder.decode(Movies.self, from: data)
+                print(String(data: data, encoding: .utf8)!)
+                print("филипп балбес")
+                DispatchQueue.main.async {
+                    completion(.success(model))
+                }
+            } catch let error {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
         }
+        task?.resume()
     }
 }

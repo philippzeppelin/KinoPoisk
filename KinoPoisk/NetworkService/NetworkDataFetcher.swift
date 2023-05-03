@@ -8,47 +8,34 @@
 import Foundation
 
 protocol NetworkDataFetcherProtocol {
-
-    func fetchMovies(searchTerm: String, completion: @escaping (Movies?) -> Void)
-//    func decodeJSON()
-
-//    func getMovies(completion: @escaping (Result<[Movies]?, Error>) -> Void)
-//    func decodeJSON()
+    func fetchMovies(completion: @escaping (Result<[Movies], Error>) -> Void)
 }
 
 class NetworkDataFetcher: NetworkDataFetcherProtocol {
-    var networkService = NetworkService()
 
-    func fetchMovies(searchTerm: String, completion: @escaping (Movies?) -> Void) {
-        networkService.request(searchTerm: searchTerm) { data, error in
-            if let error = error {
-                print("Error received requesting data: \(error.localizedDescription)")
-                completion(nil)
+    func fetchMovies(completion: @escaping (Result<[Movies], Error>) -> Void) {
+        guard let url = URL(string: "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?page=1") else { return }
+
+//        self.currentPage += 1
+
+        var request = URLRequest(url: url)
+        request.setValue("ca070bb1-cb28-4f8a-912c-5bab25ae23e7", forHTTPHeaderField: "X-API-KEY")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let data = data, let topFilms = try? JSONDecoder().decode(Movies.self, from: data) {
+                DispatchQueue.main.async {
+//                    self.dataStorage.fillingFilmsWithData(data: topFilms)
+//                    completion(.success(self.dataStorage.transmittingFilmsArray))
+                }
+            } else {
+//                self.currentPage -= 1
+                guard let error = error else { return }
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
-            let decode = self.decodeJSON(type: Movies.self, from: data)
-            completion(decode)
         }
+        task.resume()
     }
-
-    func decodeJSON<T: Decodable>(type: T.Type, from: Data?) -> T? {
-        let decoder = JSONDecoder()
-        guard let data = from else { return nil }
-
-        do {
-            let objects = try decoder.decode(type.self, from: data)
-            return objects
-        } catch let jsonError {
-            print("Failed to decode JSON", jsonError.localizedDescription)
-            return nil
-        }
-    }
-
-//    func getMovies(completion: @escaping (Result<[Movies]?, Error>) -> Void) {
-//        let urlString = "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=1"
-//        guard let url = URL(string: urlString) else { return }
-//    }
-//
-//    func decodeJSON() {
-//
-//    }
 }

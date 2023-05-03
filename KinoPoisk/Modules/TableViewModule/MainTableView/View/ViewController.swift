@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         setupInterface()
         setupConstraint()
         setupNavigationController()
+        NetworkService().getPopularMoviesData(page: 1, completion: { _ in })
     }
 
     private func setupInterface() {
