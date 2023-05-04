@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainTableViewController.swift
 //  KinoPoisk
 //
 //  Created by Philipp Zeppelin on 10.04.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainTableViewController: UIViewController {
     // MARK: - UI
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension ViewController: UITableViewDataSource {
+extension MainTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 30
     }
@@ -74,7 +74,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension ViewController: UITableViewDelegate {
+extension MainTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }

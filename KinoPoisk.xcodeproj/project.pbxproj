@@ -10,7 +10,7 @@
 		04FEC1CCC59EBBBDBF61D18C /* Pods_KinoPoisk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DA003CF6A96270933BB6FC /* Pods_KinoPoisk.framework */; };
 		E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */; };
 		E7B5768A29E47EBD00F01FA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768929E47EBD00F01FA8 /* SceneDelegate.swift */; };
-		E7B5768C29E47EBD00F01FA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768B29E47EBD00F01FA8 /* ViewController.swift */; };
+		E7B5768C29E47EBD00F01FA8 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768B29E47EBD00F01FA8 /* MainTableViewController.swift */; };
 		E7B5768F29E47EBD00F01FA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7B5768D29E47EBD00F01FA8 /* Main.storyboard */; };
 		E7B5769129E47EBE00F01FA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7B5769029E47EBE00F01FA8 /* Assets.xcassets */; };
 		E7B5769429E47EBE00F01FA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7B5769229E47EBE00F01FA8 /* LaunchScreen.storyboard */; };
@@ -30,7 +30,7 @@
 		E7B5768429E47EBD00F01FA8 /* KinoPoisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinoPoisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7B5768929E47EBD00F01FA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E7B5768B29E47EBD00F01FA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E7B5768B29E47EBD00F01FA8 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		E7B5768E29E47EBD00F01FA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7B5769029E47EBE00F01FA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7B5769329E47EBE00F01FA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		E7B576A129EDDF4300F01FA8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E7B5768B29E47EBD00F01FA8 /* ViewController.swift */,
+				E7B5768B29E47EBD00F01FA8 /* MainTableViewController.swift */,
 				E7B576EB29FE6EEE00F01FA8 /* TableViewCell.swift */,
 			);
 			path = View;
@@ -352,7 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7B576F429FFA90000F01FA8 /* NetworkService.swift in Sources */,
-				E7B5768C29E47EBD00F01FA8 /* ViewController.swift in Sources */,
+				E7B5768C29E47EBD00F01FA8 /* MainTableViewController.swift in Sources */,
 				E7B576EC29FE6EEE00F01FA8 /* TableViewCell.swift in Sources */,
 				E7B576A929EDE3D200F01FA8 /* CollectionView.swift in Sources */,
 				E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */,

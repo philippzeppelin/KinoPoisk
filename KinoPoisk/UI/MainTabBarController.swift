@@ -18,7 +18,7 @@ class MainTabBarController: UITabBarController {
 
 //        viewControllers = [
 //            generateNavigationController(rootViewController: photosVC, title: "Photos", image: UIImage(systemName: "rectangle.fill.on.rectangle.fill")),
-//            generateNavigationController(rootViewController: ViewController(), title: "Favorites", image: UIImage(systemName: "heart.fill"))
+//            generateNavigationController(rootViewController: MainTableViewController(), title: "Favorites", image: UIImage(systemName: "heart.fill"))
 //        ]
 //    }
 //
