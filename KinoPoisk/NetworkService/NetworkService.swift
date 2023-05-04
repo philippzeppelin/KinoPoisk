@@ -7,12 +7,15 @@
 
 import Foundation
 
-class NetworkService {
+protocol NetworkServiceProtocol {
+    func getMovies(page: Int, completion: @escaping (Result<Movies, Error>) -> Void)
+}
+
+class NetworkService: NetworkServiceProtocol {
     private var task: URLSessionDataTask?
 
-    func getPopularMoviesData(page: Int, completion: @escaping (Result<Movies, Error>) -> Void) {
+    func getMovies(page: Int, completion: @escaping (Result<Movies, Error>) -> Void) {
         let popularMoviesURL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?page=1"
-        print("Лена ")
         guard let url = URL(string: popularMoviesURL) else { return }
         var request = URLRequest(url: url)
 
@@ -26,13 +29,16 @@ class NetworkService {
                 print("DataTask error: \(error.localizedDescription)")
             }
 
-            guard let response = response as? HTTPURLResponse else {
-                print("Empty Response") // добавить коды response
+            guard let response = response as? HTTPURLResponse,
+                  response.statusCode == 200 else {
+                print("Response is nil")
+//                completion(.failure(.invalidResponse))
                 return
             }
 
             guard let data = data else {
-                print("Empty data")
+//                completion(.failure())
+                print("Data is nil")
                 return
             }
 
@@ -41,7 +47,6 @@ class NetworkService {
                 let decoder = JSONDecoder()
                 let model = try decoder.decode(Movies.self, from: data)
                 print(String(data: data, encoding: .utf8)!)
-                print("филипп балбес")
                 DispatchQueue.main.async {
                     completion(.success(model))
                 }

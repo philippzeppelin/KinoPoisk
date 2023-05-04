@@ -19,8 +19,8 @@
 		E7B576E429FE64A600F01FA8 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576E329FE64A600F01FA8 /* Movies.swift */; };
 		E7B576E629FE6D1A00F01FA8 /* TableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576E529FE6D1A00F01FA8 /* TableViewPresenter.swift */; };
 		E7B576EC29FE6EEE00F01FA8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576EB29FE6EEE00F01FA8 /* TableViewCell.swift */; };
-		E7B576F229FFA6DA00F01FA8 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576F129FFA6DA00F01FA8 /* NetworkDataFetcher.swift */; };
 		E7B576F429FFA90000F01FA8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576F329FFA90000F01FA8 /* NetworkService.swift */; };
+		E7B577042A042A5C00F01FA8 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B577032A042A5C00F01FA8 /* ErrorResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +41,8 @@
 		E7B576E329FE64A600F01FA8 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		E7B576E529FE6D1A00F01FA8 /* TableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPresenter.swift; sourceTree = "<group>"; };
 		E7B576EB29FE6EEE00F01FA8 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		E7B576F129FFA6DA00F01FA8 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		E7B576F329FFA90000F01FA8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E7B577032A042A5C00F01FA8 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,7 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				E7B576F329FFA90000F01FA8 /* NetworkService.swift */,
-				E7B576F129FFA6DA00F01FA8 /* NetworkDataFetcher.swift */,
+				E7B577032A042A5C00F01FA8 /* ErrorResponse.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -356,7 +356,7 @@
 				E7B576EC29FE6EEE00F01FA8 /* TableViewCell.swift in Sources */,
 				E7B576A929EDE3D200F01FA8 /* CollectionView.swift in Sources */,
 				E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */,
-				E7B576F229FFA6DA00F01FA8 /* NetworkDataFetcher.swift in Sources */,
+				E7B577042A042A5C00F01FA8 /* ErrorResponse.swift in Sources */,
 				E7B576E429FE64A600F01FA8 /* Movies.swift in Sources */,
 				E7B576A429EDE14900F01FA8 /* MainTabBarController.swift in Sources */,
 				E7B5768A29E47EBD00F01FA8 /* SceneDelegate.swift in Sources */,

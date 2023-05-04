@@ -9,5 +9,5 @@ import Foundation
 
 protocol MainTableViewProtocol: AnyObject {
     func success()
-    func failure()
+    func failure(error: Error)
 }
