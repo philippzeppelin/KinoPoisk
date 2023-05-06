@@ -19,6 +19,7 @@ protocol MainTableViewPresenterProtocol: AnyObject {
 }
 
 class MainTableViewPresenter: MainTableViewPresenterProtocol {
+    private let dataProvider: TopFilmsDataProvidingProtocol
     weak var view: MainTableViewProtocol?
     let networkService: NetworkServiceProtocol?
     var movies: [Movies]?
@@ -35,13 +36,17 @@ class MainTableViewPresenter: MainTableViewPresenterProtocol {
 
                 DispatchQueue.main.async {
                     switch result {
-                    case .success(let movies):
-                        self.movies = movies
+                    case .success(let model):
+                        self.movies = model
                         self.view?.success()
                     case .failure(let error):
                         self.view?.failure(error: error)
                     }
                 }
         })
+    }
+
+    func film(for indexPath: IndexPath) -> Films {
+        dataProvider.gettingFilmForCell(for: indexPath)
     }
 }

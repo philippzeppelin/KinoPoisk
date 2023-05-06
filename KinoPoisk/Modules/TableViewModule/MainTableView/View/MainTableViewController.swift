@@ -8,6 +8,8 @@
 import UIKit
 
 class MainTableViewController: UIViewController {
+    var presenter: MainTableViewPresenterProtocol?
+
     // MARK: - UI
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -27,6 +29,8 @@ class MainTableViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
+
+//        presenter = MainTableViewPresenter(view: self, networkService: NetworkService)
     }
 
     // MARK: - Setup UI
@@ -59,6 +63,17 @@ class MainTableViewController: UIViewController {
     }
 }
 
+// MARK: - Extensions
+extension MainTableViewController: MainTableViewProtocol {
+    func success() {
+        tableView.reloadData()
+    }
+
+    func failure(error: Error) {
+        print(error.localizedDescription)
+    }
+}
+
 // MARK: - UITableViewDataSource
 extension MainTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,6 +84,9 @@ extension MainTableViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.cellIdentifier, for: indexPath)
         cell.backgroundColor = UIColor(red: 16/255, green: 14/255, blue: 15/255, alpha: 1.0)
         cell.selectionStyle = .none
+        if let model = presenter?.movies(for: indexPath) {
+
+        }
         return cell
     }
 }

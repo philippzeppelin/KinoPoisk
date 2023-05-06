@@ -162,3 +162,9 @@ class TableViewCell: UITableViewCell {
         ])
     }
 }
+
+extension TableViewCell {
+    func updateUI(model: Films) {
+        movieNameRuLabel.text = model.nameRu
+    }
+}

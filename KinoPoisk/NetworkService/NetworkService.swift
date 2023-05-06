@@ -45,10 +45,10 @@ class NetworkService: NetworkServiceProtocol {
             do {
                 // Parse the data
                 let decoder = JSONDecoder()
-                let model = try decoder.decode([Movies].self, from: data)
+                let movie = try decoder.decode([Movies].self, from: data)
                 print(String(data: data, encoding: .utf8)!)
                 DispatchQueue.main.async {
-                    completion(.success(model))
+                    completion(.success(movie))
                 }
             } catch let error {
                 DispatchQueue.main.async {
