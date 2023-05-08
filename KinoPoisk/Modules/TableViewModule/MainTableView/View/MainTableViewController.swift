@@ -30,6 +30,7 @@ class MainTableViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
 
+        presenter?.getMovies()
 //        presenter = MainTableViewPresenter(view: self, networkService: NetworkService)
     }
 
@@ -77,15 +78,20 @@ extension MainTableViewController: MainTableViewProtocol {
 // MARK: - UITableViewDataSource
 extension MainTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        guard let moviesCount = presenter?.films.count else { return 0 }
+//        return moviesCount
         return 30
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.cellIdentifier, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.cellIdentifier, for: indexPath) as? TableViewCell else { return UITableViewCell() }
         cell.backgroundColor = UIColor(red: 16/255, green: 14/255, blue: 15/255, alpha: 1.0)
         cell.selectionStyle = .none
-        if let model = presenter?.movies(for: indexPath) {
 
+        if let movie = presenter?.films[indexPath.row] {
+            cell.updateUI(model: movie)
+        } else {
+            print("Ячейки не заполнились")
         }
         return cell
     }

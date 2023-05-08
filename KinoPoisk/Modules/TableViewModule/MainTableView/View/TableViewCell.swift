@@ -26,7 +26,7 @@ class TableViewCell: UITableViewCell {
 
     private let movieNameRuLabel: UILabel = {
         let label = UILabel()
-        label.text = "Джон Уик 4"
+//        label.text = "Джон Уик 4"
         label.font = UIFont(name: "Arial Bold", size: 20)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -106,6 +106,10 @@ class TableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func updateUI(model: Films) {
+        movieNameRuLabel.text = model.nameRu
+    }
+
     private func setup() {
         setupInterface()
         setupConstraints()
@@ -160,11 +164,5 @@ class TableViewCell: UITableViewCell {
             movieLengthLabel.leftAnchor.constraint(equalTo: countriesLabel.rightAnchor, constant: 5),
             cellView.bottomAnchor.constraint(equalTo: countriesLabel.bottomAnchor, constant: 10)
         ])
-    }
-}
-
-extension TableViewCell {
-    func updateUI(model: Films) {
-        movieNameRuLabel.text = model.nameRu
     }
 }

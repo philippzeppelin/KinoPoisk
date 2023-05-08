@@ -13,40 +13,50 @@ protocol MainTableViewProtocol: AnyObject {
 }
 
 protocol MainTableViewPresenterProtocol: AnyObject {
-    var movies: [Movies]? { get set }
-    init(view: MainTableViewProtocol, networkService: NetworkServiceProtocol)
+    var films: [Films] { get set }
+    var isFetching: Bool { get set }
+    init(view: MainTableViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
     func getMovies()
+    func beginFetch()
+
 }
 
 class MainTableViewPresenter: MainTableViewPresenterProtocol {
-    private let dataProvider: TopFilmsDataProvidingProtocol
     weak var view: MainTableViewProtocol?
     let networkService: NetworkServiceProtocol?
-    var movies: [Movies]?
+    var router: RouterProtocol?
+    var films: [Films] = []
+    var isFetching = false
+    var pageCounter = 1
 
-    required init(view: MainTableViewProtocol, networkService: NetworkServiceProtocol) {
+
+    required init(view: MainTableViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol) {
         self.view = view
         self.networkService = networkService
+        self.router = router
         getMovies()
     }
 
     func getMovies() {
-        networkService?.getMovies(page: 1, completion: { [weak self] result in
+        networkService?.getMovies(page: pageCounter) { [weak self] result in
             guard let self = self else { return }
 
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let model):
-                        self.movies = model
-                        self.view?.success()
-                    case .failure(let error):
-                        self.view?.failure(error: error)
-                    }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let model):
+                    self.films += model.films
+                    self.view?.success()
+                case .failure(let error):
+                    self.view?.failure(error: error)
                 }
-        })
+                self.isFetching = false
+            }
+        }
     }
 
-    func film(for indexPath: IndexPath) -> Films {
-        dataProvider.gettingFilmForCell(for: indexPath)
+    func beginFetch() {
+        isFetching = true
+        pageCounter += 1
+        getMovies()
     }
 }

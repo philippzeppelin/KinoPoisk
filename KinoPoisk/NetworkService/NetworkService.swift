@@ -8,13 +8,13 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func getMovies(page: Int, completion: @escaping (Result<[Movies]?, Error>) -> Void)
+    func getMovies(page: Int, completion: @escaping (Result<Movies, Error>) -> Void)
 }
 
 class NetworkService: NetworkServiceProtocol {
     private var task: URLSessionDataTask?
 
-    func getMovies(page: Int, completion: @escaping (Result<[Movies]?, Error>) -> Void) {
+    func getMovies(page: Int, completion: @escaping (Result<Movies, Error>) -> Void) {
         let popularMoviesURL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?page=1"
         guard let url = URL(string: popularMoviesURL) else { return }
         var request = URLRequest(url: url)
@@ -45,7 +45,7 @@ class NetworkService: NetworkServiceProtocol {
             do {
                 // Parse the data
                 let decoder = JSONDecoder()
-                let movie = try decoder.decode([Movies].self, from: data)
+                let movie = try decoder.decode(Movies.self, from: data)
                 print(String(data: data, encoding: .utf8)!)
                 DispatchQueue.main.async {
                     completion(.success(movie))
