@@ -15,7 +15,7 @@ class NetworkService: NetworkServiceProtocol {
     private var task: URLSessionDataTask?
 
     func getMovies(page: Int, completion: @escaping (Result<Movies, Error>) -> Void) {
-        let popularMoviesURL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?page=1"
+        let popularMoviesURL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?page=\(page)"
         guard let url = URL(string: popularMoviesURL) else { return }
         var request = URLRequest(url: url)
 

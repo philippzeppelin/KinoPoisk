@@ -29,7 +29,6 @@ class MainTableViewPresenter: MainTableViewPresenterProtocol {
     var isFetching = false
     var pageCounter = 1
 
-
     required init(view: MainTableViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol) {
         self.view = view
         self.networkService = networkService
@@ -39,24 +38,23 @@ class MainTableViewPresenter: MainTableViewPresenterProtocol {
 
     func getMovies() {
         networkService?.getMovies(page: pageCounter) { [weak self] result in
-            guard let self = self else { return }
-
+            
             DispatchQueue.main.async {
                 switch result {
                 case .success(let model):
-                    self.films += model.films
-                    self.view?.success()
+                    self?.films += model.films
+                    self?.view?.success()
                 case .failure(let error):
-                    self.view?.failure(error: error)
+                    self?.view?.failure(error: error)
                 }
-                self.isFetching = false
+                self?.isFetching = false
             }
         }
     }
 
     func beginFetch() {
         isFetching = true
-        pageCounter += 1
         getMovies()
+        pageCounter += 1
     }
 }
