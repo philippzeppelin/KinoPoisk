@@ -16,10 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
         let builder = ModuleBuilder()
-        let navigationController = UINavigationController()
-        let router = Router(navigationController: navigationController, builder: builder)
+        let mainTableViewController = MainTableViewController()
+//        let navigationController = UINavigationController()
+        let rootController = UINavigationController(rootViewController: mainTableViewController)
+        let router = Router(builder: builder, rootController: rootController, mainTableViewController: mainTableViewController)
+//        let router = Router(navigationController: navigationController, builder: builder)
         router.initialViewController()
-        window.rootViewController = navigationController
+        window.rootViewController = rootController
 //        window.rootViewController = UINavigationController(rootViewController: ModuleBuilder.createTableViewModule(router: <#RouterProtocol#>))
         window.makeKeyAndVisible()
         self.window = window
