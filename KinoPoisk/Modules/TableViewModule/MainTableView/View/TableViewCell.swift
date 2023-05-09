@@ -27,7 +27,7 @@ class TableViewCell: UITableViewCell {
     private let movieNameRuLabel: UILabel = {
         let label = UILabel()
 //        label.text = "Джон Уик 4"
-        label.font = UIFont(name: "Arial Bold", size: 20)
+        label.font = UIFont(name: "Arial Bold", size: 15)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -35,8 +35,8 @@ class TableViewCell: UITableViewCell {
 
     private let movieNameEnLabel: UILabel = {
         let label = UILabel()
-        label.text = "John Wick: Chapter 4"
-        label.font = UIFont(name: "Arial", size: 18)
+//        label.text = "John Wick: Chapter 4"
+        label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -44,18 +44,17 @@ class TableViewCell: UITableViewCell {
 
     private let genresLabel: UILabel = {
         let label = UILabel()
-        label.text = "боевик, триллер, криминал"
-        label.font = UIFont(name: "Arial", size: 18)
+//        label.text = "боевик, триллер, криминал"
+        label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .gray
-        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     private let ratingLabel: UILabel = {
         let label = UILabel()
-        label.text = "7.7"
-        label.font = UIFont(name: "Arial", size: 20)
+//        label.text = "7.7"
+        label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -63,8 +62,8 @@ class TableViewCell: UITableViewCell {
 
     private let movieLengthLabel: UILabel = {
         let label = UILabel()
-        label.text = "2:49"
-        label.font = UIFont(name: "Arial", size: 18)
+//        label.text = "2:49"
+        label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -72,8 +71,8 @@ class TableViewCell: UITableViewCell {
 
     private let countriesLabel: UILabel = {
         let label = UILabel()
-        label.text = "США, Германия"
-        label.font = UIFont(name: "Arial", size: 18)
+//        label.text = "США, Германия"
+        label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -81,8 +80,8 @@ class TableViewCell: UITableViewCell {
 
     private let ratingVoteCountLabel: UILabel = {
         let label = UILabel()
-        label.text = "66 988"
-        label.font = UIFont(name: "Arial", size: 17)
+//        label.text = "66 988"
+        label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -90,7 +89,7 @@ class TableViewCell: UITableViewCell {
 
     private let movieYearLabel: UILabel = {
         let label = UILabel()
-        label.text = "(2023)"
+//        label.text = "(2023)"
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -98,7 +97,6 @@ class TableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         setup()
     }
 
@@ -106,8 +104,33 @@ class TableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func updateUI(model: Films) {
-        movieNameRuLabel.text = model.nameRu
+    func updateUI(movies: Films) {
+        movieNameRuLabel.text = movies.nameRu
+        movieNameEnLabel.text = "\(movies.nameEn ?? "") (\(movies.year))"
+        ratingLabel.text = movies.rating
+        movieLengthLabel.text = movies.filmLength
+        ratingVoteCountLabel.text = "\(movies.ratingVoteCount)"
+
+        var genres: [String] = []
+        for genre in movies.genres {
+            genres.append(genre.genre)
+        }
+        genresLabel.text = genres.joined(separator: ", ")
+
+        var countries: [String] = []
+        for country in movies.countries {
+            countries.append(country.country)
+        }
+        countriesLabel.text = countries.joined(separator: ", ")
+
+        guard let ratingColor = Double(movies.rating) else { return }
+        switch ratingColor {
+        case 0..<5: return ratingLabel.textColor = .red
+        case 7...10: return ratingLabel.textColor = .green
+        default: return ratingLabel.textColor = .gray
+        }
+
+        
     }
 
     private func setup() {
@@ -137,17 +160,20 @@ class TableViewCell: UITableViewCell {
 
             posterImageView.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 5),
             posterImageView.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 5),
-            posterImageView.widthAnchor.constraint(equalToConstant: 85),
+            posterImageView.widthAnchor.constraint(equalToConstant: 75),
             cellView.bottomAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 5),
 
             movieNameRuLabel.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 10),
             movieNameRuLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
+            cellView.rightAnchor.constraint(equalTo: movieNameRuLabel.rightAnchor, constant: 10),
 
             movieNameEnLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: 3),
             movieNameEnLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
+            cellView.rightAnchor.constraint(equalTo: movieNameEnLabel.rightAnchor, constant: 10),
 
             genresLabel.topAnchor.constraint(equalTo: movieNameEnLabel.bottomAnchor, constant: 2),
             genresLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
+            cellView.rightAnchor.constraint(equalTo: genresLabel.rightAnchor, constant: 10),
 
             cellView.bottomAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 10),
             ratingLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),

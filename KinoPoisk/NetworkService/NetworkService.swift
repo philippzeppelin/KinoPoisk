@@ -46,7 +46,7 @@ class NetworkService: NetworkServiceProtocol {
                 // Parse the data
                 let decoder = JSONDecoder()
                 let movie = try decoder.decode(Movies.self, from: data)
-                print(String(data: data, encoding: .utf8)!)
+//                print(String(data: data, encoding: .utf8)!)
                 DispatchQueue.main.async {
                     completion(.success(movie))
                 }

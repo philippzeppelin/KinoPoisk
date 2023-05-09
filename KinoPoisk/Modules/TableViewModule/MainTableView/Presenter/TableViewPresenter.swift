@@ -18,7 +18,6 @@ protocol MainTableViewPresenterProtocol: AnyObject {
     init(view: MainTableViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
     func getMovies()
     func beginFetch()
-
 }
 
 class MainTableViewPresenter: MainTableViewPresenterProtocol {
@@ -33,12 +32,10 @@ class MainTableViewPresenter: MainTableViewPresenterProtocol {
         self.view = view
         self.networkService = networkService
         self.router = router
-        getMovies()
     }
 
     func getMovies() {
         networkService?.getMovies(page: pageCounter) { [weak self] result in
-            
             DispatchQueue.main.async {
                 switch result {
                 case .success(let model):
@@ -54,7 +51,7 @@ class MainTableViewPresenter: MainTableViewPresenterProtocol {
 
     func beginFetch() {
         isFetching = true
-        getMovies()
         pageCounter += 1
+        getMovies()
     }
 }

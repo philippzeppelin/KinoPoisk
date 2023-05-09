@@ -31,7 +31,6 @@ class MainTableViewController: UIViewController {
         tableView.delegate = self
 
         presenter?.getMovies()
-//        presenter = MainTableViewPresenter(view: self, networkService: NetworkService)
     }
 
     // MARK: - Setup UI
@@ -39,7 +38,6 @@ class MainTableViewController: UIViewController {
         setupInterface()
         setupConstraint()
         setupNavigationController()
-//        NetworkService().getMovies(page: 1, completion: { _ in })
     }
 
     private func setupInterface() {
@@ -53,7 +51,6 @@ class MainTableViewController: UIViewController {
             tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-
     }
 
     private func setupNavigationController() {
@@ -80,7 +77,6 @@ extension MainTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let moviesCount = presenter?.films.count else { return 0 }
         return moviesCount
-//        return 30
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -88,11 +84,8 @@ extension MainTableViewController: UITableViewDataSource {
         cell.backgroundColor = UIColor(red: 16/255, green: 14/255, blue: 15/255, alpha: 1.0)
         cell.selectionStyle = .none
 
-//        guard let presenter = presenter else { return }
-
-
         if let movie = presenter?.films[indexPath.row] {
-            cell.updateUI(model: movie)
+            cell.updateUI(movies: movie)
         } else {
             print("Ячейки не заполнились")
         }
@@ -104,27 +97,20 @@ extension MainTableViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension MainTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return 120
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Tap cell")
     }
-}
 
-//extension MainTableViewController: UIScrollViewDelegate {
-//
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let offsetY = scrollView.contentOffset.y
-//        let contentHeight = scrollView.contentSize.height
-//
-//        guard let presenter = presenter else { return }
-//        if offsetY > (contentHeight - scrollView.frame.height) && !presenter.isFetching  {
-//            presenter.beginFetch()
-////                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0 ) {
-////                            print("asyncAfter")
-////
-////                        }
-//        }
-//    }
-//}
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastRowIndex = tableView.numberOfRows(inSection: 0) - 1
+        guard indexPath.row == lastRowIndex else { return }
+
+        guard let presenter = presenter else { return }
+        if !presenter.isFetching {
+            presenter.beginFetch()
+        }
+    }
+}
