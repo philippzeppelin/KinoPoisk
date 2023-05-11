@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04FEC1CCC59EBBBDBF61D18C /* Pods_KinoPoisk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DA003CF6A96270933BB6FC /* Pods_KinoPoisk.framework */; };
+		E76D54342A0C183900E0AB15 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76D54332A0C183900E0AB15 /* CustomImageView.swift */; };
 		E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */; };
 		E7B5768A29E47EBD00F01FA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768929E47EBD00F01FA8 /* SceneDelegate.swift */; };
 		E7B5768C29E47EBD00F01FA8 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768B29E47EBD00F01FA8 /* MainTableViewController.swift */; };
@@ -29,6 +30,7 @@
 		3B7A70221DAD5E86E9EF0066 /* Pods-KinoPoisk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinoPoisk.debug.xcconfig"; path = "Target Support Files/Pods-KinoPoisk/Pods-KinoPoisk.debug.xcconfig"; sourceTree = "<group>"; };
 		78991D5A23074CBB3512008E /* Pods-KinoPoisk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinoPoisk.release.xcconfig"; path = "Target Support Files/Pods-KinoPoisk/Pods-KinoPoisk.release.xcconfig"; sourceTree = "<group>"; };
 		D1DA003CF6A96270933BB6FC /* Pods_KinoPoisk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KinoPoisk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E76D54332A0C183900E0AB15 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		E7B5768429E47EBD00F01FA8 /* KinoPoisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinoPoisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7B5768929E47EBD00F01FA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				E7B5768B29E47EBD00F01FA8 /* MainTableViewController.swift */,
 				E7B576EB29FE6EEE00F01FA8 /* TableViewCell.swift */,
+				E76D54332A0C183900E0AB15 /* CustomImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				E7B576E629FE6D1A00F01FA8 /* TableViewPresenter.swift in Sources */,
 				E7FD0A8A2A0902C300D576B1 /* ModuleBuilder.swift in Sources */,
 				E7FD0A8D2A0905EB00D576B1 /* Router.swift in Sources */,
+				E76D54342A0C183900E0AB15 /* CustomImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

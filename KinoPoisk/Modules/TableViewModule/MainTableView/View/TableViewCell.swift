@@ -125,12 +125,21 @@ class TableViewCell: UITableViewCell {
 
         guard let ratingColor = Double(movies.rating) else { return }
         switch ratingColor {
-        case 0..<5: return ratingLabel.textColor = .red
-        case 7...10: return ratingLabel.textColor = .green
-        default: return ratingLabel.textColor = .gray
+        case 0..<5:  ratingLabel.textColor = .red
+        case 7...10: ratingLabel.textColor = .green
+        default: ratingLabel.textColor = .gray
         }
 
-        
+        if let url = URL(string: movies.posterUrl) {
+            URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+                guard let data = data, error == nil else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    self?.posterImageView.image = UIImage(data: data)
+                }
+            }.resume()
+        }
     }
 
     private func setup() {
