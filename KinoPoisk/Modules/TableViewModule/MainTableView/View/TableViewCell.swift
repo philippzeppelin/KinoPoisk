@@ -19,14 +19,12 @@ class TableViewCell: UITableViewCell {
 
         let posterImageView: CustomImageView = {
         let imageView = CustomImageView()
-//        imageView.backgroundColor = .red
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     private let movieNameRuLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Джон Уик 4"
         label.font = UIFont(name: "Arial Bold", size: 15)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +33,6 @@ class TableViewCell: UITableViewCell {
 
     private let movieNameEnLabel: UILabel = {
         let label = UILabel()
-//        label.text = "John Wick: Chapter 4"
         label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +41,6 @@ class TableViewCell: UITableViewCell {
 
     private let genresLabel: UILabel = {
         let label = UILabel()
-//        label.text = "боевик, триллер, криминал"
         label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +49,6 @@ class TableViewCell: UITableViewCell {
 
     private let ratingLabel: UILabel = {
         let label = UILabel()
-//        label.text = "7.7"
         label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -62,7 +57,6 @@ class TableViewCell: UITableViewCell {
 
     private let movieLengthLabel: UILabel = {
         let label = UILabel()
-//        label.text = "2:49"
         label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +65,6 @@ class TableViewCell: UITableViewCell {
 
     private let countriesLabel: UILabel = {
         let label = UILabel()
-//        label.text = "США, Германия"
         label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -80,7 +73,6 @@ class TableViewCell: UITableViewCell {
 
     private let ratingVoteCountLabel: UILabel = {
         let label = UILabel()
-//        label.text = "66 988"
         label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +81,6 @@ class TableViewCell: UITableViewCell {
 
     private let movieYearLabel: UILabel = {
         let label = UILabel()
-//        label.text = "(2023)"
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -130,36 +121,6 @@ class TableViewCell: UITableViewCell {
         case 7...10: ratingLabel.textColor = .green
         default: ratingLabel.textColor = .gray
         }
-
-//        var task: URLSessionDataTask?
-
-//        if let task = task {
-//            task.cancel()
-//        }
-//
-//        task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-//            guard let data = data, error == nil else {
-//                return
-//            }
-//            DispatchQueue.main.async {
-//                self?.posterImageView.image = UIImage(data: data)
-//            }
-//        }.resume()
-
-//        if let url = URL(string: movies.posterUrl) {
-//            URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-//                guard let data = data, error == nil else {
-//                    return
-//                }
-//                DispatchQueue.main.async {
-//                    self?.posterImageView.image = UIImage(data: data)
-//                }
-//            }.resume()
-//        }
-
-//        if let url = URL(string: movies.posterUrl) {
-//            self.posterImageView.image =
-//        }
     }
 
     private func setup() {

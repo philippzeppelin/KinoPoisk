@@ -7,6 +7,8 @@
 
 import UIKit
 
+let imageCache = NSCache<AnyObject, AnyObject>()
+
 class CustomImageView: UIImageView {
     var task: URLSessionDataTask?
 
@@ -15,6 +17,12 @@ class CustomImageView: UIImageView {
 
         if let task = task {
             task.cancel()
+            print("таска отменена")
+        }
+
+        if let imageFromCache = imageCache.object(forKey: url.absoluteString as AnyObject) as? UIImage {
+            image = imageFromCache
+            return
         }
 
         task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
@@ -22,6 +30,9 @@ class CustomImageView: UIImageView {
                 print("Couldn't load image. Reason: \(String(describing: error?.localizedDescription))")
                 return
             }
+
+            imageCache.setObject(newImage, forKey: url.absoluteString as AnyObject)
+
             DispatchQueue.main.async {
                 self?.image = newImage
             }
