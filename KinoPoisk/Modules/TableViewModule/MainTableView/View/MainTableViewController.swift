@@ -9,6 +9,8 @@ import UIKit
 
 class MainTableViewController: UIViewController {
     var presenter: MainTableViewPresenterProtocol?
+    var filmList = [Films]()
+    var movies = [Movies]()
 
     // MARK: - UI
     private let tableView: UITableView = {
@@ -81,6 +83,9 @@ extension MainTableViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.cellIdentifier, for: indexPath) as? TableViewCell else { return UITableViewCell() }
+        let film = presenter?.films[indexPath.row]
+        guard let tableViewCell = cell as? TableViewCell else { return cell }
+
         cell.backgroundColor = UIColor(red: 16/255, green: 14/255, blue: 15/255, alpha: 1.0)
         cell.selectionStyle = .none
 
@@ -88,6 +93,10 @@ extension MainTableViewController: UITableViewDataSource {
             cell.updateUI(movies: movie)
         } else {
             print("Ячейки не заполнились")
+        }
+
+        if let url = URL(string: film!.posterUrl) {
+            tableViewCell.posterImageView.loadImage(url: url)
         }
 
         return cell

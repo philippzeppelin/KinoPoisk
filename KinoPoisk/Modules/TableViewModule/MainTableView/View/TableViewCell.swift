@@ -17,9 +17,9 @@ class TableViewCell: UITableViewCell {
         return view
     }()
 
-    private let posterImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .red
+        let posterImageView: CustomImageView = {
+        let imageView = CustomImageView()
+//        imageView.backgroundColor = .red
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -110,6 +110,7 @@ class TableViewCell: UITableViewCell {
         ratingLabel.text = movies.rating
         movieLengthLabel.text = movies.filmLength
         ratingVoteCountLabel.text = "\(movies.ratingVoteCount)"
+        posterImageView.image = nil
 
         var genres: [String] = []
         for genre in movies.genres {
@@ -130,16 +131,35 @@ class TableViewCell: UITableViewCell {
         default: ratingLabel.textColor = .gray
         }
 
-        if let url = URL(string: movies.posterUrl) {
-            URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-                guard let data = data, error == nil else {
-                    return
-                }
-                DispatchQueue.main.async {
-                    self?.posterImageView.image = UIImage(data: data)
-                }
-            }.resume()
-        }
+//        var task: URLSessionDataTask?
+
+//        if let task = task {
+//            task.cancel()
+//        }
+//
+//        task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+//            guard let data = data, error == nil else {
+//                return
+//            }
+//            DispatchQueue.main.async {
+//                self?.posterImageView.image = UIImage(data: data)
+//            }
+//        }.resume()
+
+//        if let url = URL(string: movies.posterUrl) {
+//            URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+//                guard let data = data, error == nil else {
+//                    return
+//                }
+//                DispatchQueue.main.async {
+//                    self?.posterImageView.image = UIImage(data: data)
+//                }
+//            }.resume()
+//        }
+
+//        if let url = URL(string: movies.posterUrl) {
+//            self.posterImageView.image =
+//        }
     }
 
     private func setup() {

@@ -17,14 +17,13 @@ class CustomImageView: UIImageView {
             task.cancel()
         }
 
-        task = URLSession.shared.dataTask(with: url) { data, _, error in
+        task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
             guard let data = data, let newImage = UIImage(data: data) else {
                 print("Couldn't load image. Reason: \(String(describing: error?.localizedDescription))")
                 return
             }
-
             DispatchQueue.main.async {
-                self.image = newImage
+                self?.image = newImage
             }
         }
         task?.resume()
