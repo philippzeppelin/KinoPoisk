@@ -15,6 +15,7 @@ protocol RouterMain {
 
 protocol RouterProtocol: RouterMain {
     func initialViewController()
+    func showDetail(movies: Movies?)
 }
 
 class Router: RouterProtocol {
@@ -31,7 +32,14 @@ class Router: RouterProtocol {
     }
 
     func initialViewController() {
-        let mainTableViewController = builder?.createTableViewModule(router: self)
+        let mainTableViewController = builder?.createMainTableViewModule(router: self)
         rootController?.pushViewController(mainTableViewController!, animated: true)
+    }
+
+    func showDetail(movies: Movies?) {
+        if let rootController = rootController {
+            guard let detailTableView = builder?.createDetailTableViewModule(router: self, movies: movies) else { return }
+            rootController.pushViewController(detailTableView, animated: true)
+        }
     }
 }

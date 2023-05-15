@@ -18,6 +18,7 @@ protocol MainTableViewPresenterProtocol: AnyObject {
     init(view: MainTableViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
     func getMovies()
     func beginFetch()
+    func goToDetailMovie(movies: Movies?)
 }
 
 class MainTableViewPresenter: MainTableViewPresenterProtocol {
@@ -53,5 +54,10 @@ class MainTableViewPresenter: MainTableViewPresenterProtocol {
         isFetching = true
         pageCounter += 1
         getMovies()
+    }
+
+    func goToDetailMovie(movies: Movies?) {
+        router?.showDetail(movies: movies)
+        print("tap")
     }
 }
