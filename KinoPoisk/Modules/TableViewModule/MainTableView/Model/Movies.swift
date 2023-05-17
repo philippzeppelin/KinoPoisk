@@ -9,10 +9,10 @@ import Foundation
 
 struct Movies: Codable {
     var pagesCount: Int
-    var films: [Films]
+    var films: [Film]
 }
 
-struct Films: Codable {
+struct Film: Codable {
     var filmId: Int
     var nameRu: String
     var nameEn: String?

@@ -13,19 +13,19 @@ protocol MainTableViewProtocol: AnyObject {
 }
 
 protocol MainTableViewPresenterProtocol: AnyObject {
-    var films: [Films] { get set }
+    var films: [Film] { get set }
     var isFetching: Bool { get set }
     init(view: MainTableViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
     func getMovies()
     func beginFetch()
-    func goToDetailMovie(movies: Movies?)
+    func goToDetailMovie(film: Film?)
 }
 
 class MainTableViewPresenter: MainTableViewPresenterProtocol {
     weak var view: MainTableViewProtocol?
     let networkService: NetworkServiceProtocol?
     var router: RouterProtocol?
-    var films: [Films] = []
+    var films: [Film] = []
     var isFetching = false
     var pageCounter = 1
 
@@ -56,8 +56,8 @@ class MainTableViewPresenter: MainTableViewPresenterProtocol {
         getMovies()
     }
 
-    func goToDetailMovie(movies: Movies?) {
-        router?.showDetail(movies: movies)
+    func goToDetailMovie(film: Film?) {
+        router?.showDetail(film: film)
         print("tap")
     }
 }

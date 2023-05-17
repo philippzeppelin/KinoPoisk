@@ -9,7 +9,7 @@ import UIKit
 
 protocol ModuleBuilderProtocol {
     func createMainTableViewModule(router: RouterProtocol) -> UIViewController
-    func createDetailTableViewModule(router: RouterProtocol, movies: Movies?) -> UIViewController
+    func createDetailTableViewModule(router: RouterProtocol, film: Film?) -> UIViewController
 }
 
 class ModuleBuilder: ModuleBuilderProtocol {
@@ -21,10 +21,10 @@ class ModuleBuilder: ModuleBuilderProtocol {
         return view
     }
 
-    func createDetailTableViewModule(router: RouterProtocol, movies: Movies?) -> UIViewController {
+    func createDetailTableViewModule(router: RouterProtocol, film: Film?) -> UIViewController {
         let view = DetailTableViewController()
         let networkService = NetworkService()
-        let presenter = DetailViewPresenter(view: view, networkService: networkService, router: router, movies: movies)
+        let presenter = DetailViewPresenter(view: view, networkService: networkService, router: router, film: film)
         view.presenter = presenter
         return view
     }

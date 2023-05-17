@@ -19,7 +19,7 @@ class DetailTableViewController: UIViewController {
 }
 
 extension DetailTableViewController: DetailViewProtocol {
-    func setMovies(movies: Movies?) {
+    func setMovies(film: Film?) {
         //
     }
 }

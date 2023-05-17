@@ -9,7 +9,7 @@ import UIKit
 
 class MainTableViewController: UIViewController {
     var presenter: MainTableViewPresenterProtocol?
-    var filmList = [Films]()
+    var filmList = [Film]()
     var movies = [Movies]()
 
     // MARK: - UI
@@ -111,6 +111,8 @@ extension MainTableViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let film = presenter?.films[indexPath.row]
+        presenter?.goToDetailMovie(film: film)
         print("Tap cell")
     }
 

@@ -95,7 +95,7 @@ class TableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func updateUI(movies: Films) {
+    func updateUI(movies: Film) {
         movieNameRuLabel.text = movies.nameRu
         movieNameEnLabel.text = "\(movies.nameEn ?? "") (\(movies.year))"
         ratingLabel.text = movies.rating

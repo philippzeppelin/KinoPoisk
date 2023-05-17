@@ -8,11 +8,11 @@
 import Foundation
 
 protocol DetailViewProtocol: AnyObject {
-    func setMovies(movies: Movies?)
+    func setMovies(film: Film?)
 }
 
 protocol DetailViewPresenterProtocol: AnyObject {
-    init(view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, movies: Movies?)
+    init(view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, film: Film?)
     func setMovies()
 }
 
@@ -20,16 +20,16 @@ class DetailViewPresenter: DetailViewPresenterProtocol {
     weak var view: DetailViewProtocol?
     var router: RouterProtocol?
     let networkService: NetworkServiceProtocol?
-    var movies: Movies?
+    var film: Film?
 
-    required init(view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, movies: Movies?) {
+    required init(view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, film: Film?) {
         self.view = view
         self.router = router
         self.networkService = networkService
-        self.movies = movies
+        self.film = film
     }
 
     func setMovies() {
-        self.view?.setMovies(movies: movies)
+        self.view?.setMovies(film: film)
     }
 }
