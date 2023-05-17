@@ -9,7 +9,6 @@ import UIKit
 
 protocol RouterMain {
     var builder: ModuleBuilderProtocol? { get set }
-    var mainTableViewController: UIViewController? { get set }
     var rootController: UINavigationController? { get set }
 }
 
@@ -21,19 +20,16 @@ protocol RouterProtocol: RouterMain {
 class Router: RouterProtocol {
     var builder: ModuleBuilderProtocol?
     var rootController: UINavigationController?
-    var mainTableViewController: UIViewController?
 
     init(builder: ModuleBuilderProtocol,
-         rootController: UINavigationController,
-         mainTableViewController: UIViewController) {
+         rootController: UINavigationController) {
         self.builder = builder
         self.rootController = rootController
-        self.mainTableViewController = mainTableViewController
     }
 
     func initialViewController() {
-        let mainTableViewController = builder?.createMainTableViewModule(router: self)
-        rootController?.pushViewController(mainTableViewController!, animated: true)
+        let mainViewController = builder?.createMainTableViewModule(router: self)
+        rootController?.pushViewController(mainViewController!, animated: true)
     }
 
     func showDetail(film: Film?) {
