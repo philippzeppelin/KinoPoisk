@@ -133,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				E7B576E929FE6E6C00F01FA8 /* MainTableView */,
-				E7B576EA29FE6E7900F01FA8 /* DetailTableView */,
 			);
 			path = TableViewModule;
 			sourceTree = "<group>";
@@ -178,6 +177,7 @@
 			children = (
 				E7B5769D29EDDB1F00F01FA8 /* TableViewModule */,
 				E7B5769E29EDDC2E00F01FA8 /* CollectionViewModule */,
+				E7B576EA29FE6E7900F01FA8 /* DetailTableView */,
 			);
 			path = Modules;
 			sourceTree = "<group>";

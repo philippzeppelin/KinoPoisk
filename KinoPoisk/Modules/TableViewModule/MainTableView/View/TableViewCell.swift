@@ -67,6 +67,7 @@ class TableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
+        label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -177,6 +178,7 @@ class TableViewCell: UITableViewCell {
             movieYearLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: 3),
             movieYearLabel.leftAnchor.constraint(equalTo: movieNameEnLabel.rightAnchor, constant: 5),
 
+            countriesLabel.leftAnchor.constraint(equalTo: ratingVoteCountLabel.rightAnchor, constant: 2),
             movieLengthLabel.leftAnchor.constraint(equalTo: countriesLabel.rightAnchor, constant: 5),
             cellView.bottomAnchor.constraint(equalTo: countriesLabel.bottomAnchor, constant: 10)
         ])
