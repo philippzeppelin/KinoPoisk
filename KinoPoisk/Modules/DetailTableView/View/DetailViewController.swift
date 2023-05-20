@@ -9,15 +9,13 @@ import UIKit
 
 class DetailViewController: UIViewController {
     var presenter: DetailViewPresenterProtocol?
+    private var addedViewController: AddedViewController?
 
-    private lazy var button: UIButton = {
-        let button = UIButton()
-        button.setTitle("Button", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .green
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    private let posterImageView: CustomImageView = {
+        let imageView = CustomImageView()
+        imageView.backgroundColor = .magenta
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
 
     override func viewDidLoad() {
@@ -30,8 +28,22 @@ class DetailViewController: UIViewController {
         setup()
     }
 
-    @objc private func buttonPressed() {
-        print("button pressed")
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presentAddedViewController()
+    }
+
+    func presentAddedViewController() {
+        let addedView = AddedViewController()
+        if let sheet = addedView.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 0
+        }
+        present(addedView, animated: true)
+
+
     }
 
     private func setup() {
@@ -40,13 +52,16 @@ class DetailViewController: UIViewController {
     }
 
     private func setupInterface() {
-        view.addSubview(button)
+        view.addSubview(posterImageView)
     }
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            posterImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            posterImageView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            posterImageView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            posterImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
         ])
     }
 }
