@@ -22,7 +22,7 @@ class ModuleBuilder: ModuleBuilderProtocol {
     }
 
     func createDetailTableViewModule(router: RouterProtocol, film: Film?) -> UIViewController {
-        let view = DetailTableViewController()
+        let view = DetailViewController()
         let networkService = NetworkService()
         let presenter = DetailViewPresenter(view: view, networkService: networkService, router: router, film: film)
         view.presenter = presenter

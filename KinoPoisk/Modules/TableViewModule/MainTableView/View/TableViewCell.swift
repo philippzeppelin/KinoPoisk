@@ -59,6 +59,7 @@ class TableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
+        label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -184,3 +185,4 @@ class TableViewCell: UITableViewCell {
         ])
     }
 }
+// проверить сделать констрейнтрейтинг к рейтингу фильма и странам
