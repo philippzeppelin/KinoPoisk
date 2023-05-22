@@ -21,7 +21,7 @@ protocol MainTableViewPresenterProtocol: AnyObject {
     func goToDetailMovie(film: Film?)
 }
 
-class MainTableViewPresenter: MainTableViewPresenterProtocol {
+final class MainTableViewPresenter: MainTableViewPresenterProtocol {
     weak var view: MainTableViewProtocol?
     let networkService: NetworkServiceProtocol?
     var router: RouterProtocol?

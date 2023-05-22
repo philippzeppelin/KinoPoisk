@@ -12,7 +12,7 @@ protocol ModuleBuilderProtocol {
     func createDetailTableViewModule(router: RouterProtocol, film: Film?) -> UIViewController
 }
 
-class ModuleBuilder: ModuleBuilderProtocol {
+final class ModuleBuilder: ModuleBuilderProtocol {
     func createMainTableViewModule(router: RouterProtocol) -> UIViewController {
         let view = MainTableViewController()
         let networkService = NetworkService()

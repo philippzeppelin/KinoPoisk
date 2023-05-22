@@ -7,5 +7,5 @@
 
 import UIKit
 
-class CollectionView {
+final class CollectionView {
 }

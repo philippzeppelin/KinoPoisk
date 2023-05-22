@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTableViewController: UIViewController {
+final class MainTableViewController: UIViewController {
     var presenter: MainTableViewPresenterProtocol?
     var filmList = [Film]()
     var movies = [Movies]()

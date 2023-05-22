@@ -9,7 +9,7 @@ import UIKit
 
 let imageCache = NSCache<AnyObject, AnyObject>()
 
-class CustomImageView: UIImageView {
+final class CustomImageView: UIImageView {
     var task: URLSessionDataTask?
 
     func loadImage(url: URL) {

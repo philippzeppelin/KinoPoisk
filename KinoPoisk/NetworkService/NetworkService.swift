@@ -11,7 +11,7 @@ protocol NetworkServiceProtocol {
     func getMovies(page: Int, completion: @escaping (Result<Movies, Error>) -> Void)
 }
 
-class NetworkService: NetworkServiceProtocol {
+final class NetworkService: NetworkServiceProtocol {
     private var task: URLSessionDataTask?
 
     func getMovies(page: Int, completion: @escaping (Result<Movies, Error>) -> Void) {

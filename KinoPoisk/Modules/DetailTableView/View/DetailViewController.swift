@@ -7,9 +7,20 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     var presenter: DetailViewPresenterProtocol?
-    private var addedViewController: AddedViewController?
+
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
 
     private let posterImageView: CustomImageView = {
         let imageView = CustomImageView()
@@ -28,40 +39,29 @@ class DetailViewController: UIViewController {
         setup()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        presentAddedViewController()
-    }
-
-    func presentAddedViewController() {
-        let addedView = AddedViewController()
-        if let sheet = addedView.sheetPresentationController {
-            sheet.detents = [.medium(), .large()]
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-            sheet.prefersGrabberVisible = true
-            sheet.preferredCornerRadius = 0
-        }
-        present(addedView, animated: true)
-
-
-    }
-
     private func setup() {
         setupInterface()
         setupConstraints()
     }
 
     private func setupInterface() {
-        view.addSubview(posterImageView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(stackView)
     }
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            posterImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            posterImageView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            posterImageView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            posterImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            stackView.heightAnchor.constraint(equalToConstant: 1300)
         ])
     }
 }

@@ -17,7 +17,7 @@ protocol RouterProtocol: RouterMain {
     func showDetail(film: Film?)
 }
 
-class Router: RouterProtocol {
+final class Router: RouterProtocol {
     var builder: ModuleBuilderProtocol?
     var rootController: UINavigationController?
 

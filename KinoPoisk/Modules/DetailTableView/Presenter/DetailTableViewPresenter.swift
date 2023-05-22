@@ -16,7 +16,7 @@ protocol DetailViewPresenterProtocol: AnyObject {
     func setMovies()
 }
 
-class DetailViewPresenter: DetailViewPresenterProtocol {
+final class DetailViewPresenter: DetailViewPresenterProtocol {
     weak var view: DetailViewProtocol?
     var router: RouterProtocol?
     let networkService: NetworkServiceProtocol?
