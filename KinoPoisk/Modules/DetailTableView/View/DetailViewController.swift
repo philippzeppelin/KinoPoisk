@@ -86,8 +86,48 @@ final class DetailViewController: UIViewController {
         return label
     }()
 
-    let ratingsView: UIView = {
+    private let countriesLabel: UILabel = {
+        let label = UILabel()
+        label.text = "США"
+//        label.font = UIFont(name: "Arial", size: 13)
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let ratingsView: UIView = {
         let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private let yearAndGenreView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private let countryAndLengthView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Назад", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .orange
+        button.layer.cornerRadius = 23
+        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    private let grabView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray
+        view.layer.cornerRadius = 2
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -104,43 +144,11 @@ final class DetailViewController: UIViewController {
         presenter?.setMovies()
 
         setup()
-        setupLabels()
     }
 
-    private func setupLabels() {
-           // Create a container view to hold the labels
-           let container = UIView()
-           container.translatesAutoresizingMaskIntoConstraints = false
-           view.addSubview(container)
-
-           // First Label
-           let label1 = UILabel()
-           label1.text = "Label 1"
-           label1.translatesAutoresizingMaskIntoConstraints = false
-           container.addSubview(label1)
-
-           // Second Label
-           let label2 = UILabel()
-           label2.text = "Label 2"
-           label2.translatesAutoresizingMaskIntoConstraints = false
-           container.addSubview(label2)
-
-           // Set constraints for the container view
-           NSLayoutConstraint.activate([
-               container.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-               container.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-           ])
-
-           // Set constraints for the labels within the container view
-           NSLayoutConstraint.activate([
-               label1.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-               label1.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-
-               label2.leadingAnchor.constraint(equalTo: label1.trailingAnchor, constant: 8),
-               label2.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-               label2.trailingAnchor.constraint(equalTo: container.trailingAnchor)
-           ])
-       }
+    @objc private func backButtonTapped() {
+        print("tapped back button")
+    }
 
     private func setup() {
         setupInterface()
@@ -155,7 +163,14 @@ final class DetailViewController: UIViewController {
         scrollView.addSubview(ratingsView)
         ratingsView.addSubview(ratingLabel)
         ratingsView.addSubview(ratingVoteCountLabel)
-
+        scrollView.addSubview(yearAndGenreView)
+        yearAndGenreView.addSubview(movieYearLabel)
+        yearAndGenreView.addSubview(genresLabel)
+        scrollView.addSubview(countryAndLengthView)
+        countryAndLengthView.addSubview(countriesLabel)
+        countryAndLengthView.addSubview(movieLengthLabel)
+        scrollView.addSubview(backButton)
+        scrollView.addSubview(grabView)
     }
 
     private func setupConstraints() {
@@ -170,7 +185,7 @@ final class DetailViewController: UIViewController {
             scrollStackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
             scrollStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             scrollStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            scrollStackView.heightAnchor.constraint(equalToConstant: 1300),
+            scrollStackView.heightAnchor.constraint(equalToConstant: 900),
 
             posterImageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             posterImageView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
@@ -188,7 +203,37 @@ final class DetailViewController: UIViewController {
 
             ratingVoteCountLabel.leftAnchor.constraint(equalTo: ratingLabel.rightAnchor, constant: 8),
             ratingVoteCountLabel.centerYAnchor.constraint(equalTo: ratingsView.centerYAnchor),
-            ratingVoteCountLabel.rightAnchor.constraint(equalTo: ratingsView.rightAnchor)
+            ratingVoteCountLabel.rightAnchor.constraint(equalTo: ratingsView.rightAnchor),
+
+            yearAndGenreView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            yearAndGenreView.topAnchor.constraint(equalTo: ratingsView.bottomAnchor, constant: 25),
+
+            movieYearLabel.leftAnchor.constraint(equalTo: yearAndGenreView.leftAnchor),
+            movieYearLabel.centerYAnchor.constraint(equalTo: yearAndGenreView.centerYAnchor),
+
+            genresLabel.leftAnchor.constraint(equalTo: movieYearLabel.rightAnchor, constant: 8),
+            genresLabel.centerYAnchor.constraint(equalTo: yearAndGenreView.centerYAnchor),
+            genresLabel.rightAnchor.constraint(equalTo: yearAndGenreView.rightAnchor),
+
+            countryAndLengthView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            countryAndLengthView.topAnchor.constraint(equalTo: yearAndGenreView.bottomAnchor, constant: 25),
+
+            countriesLabel.leftAnchor.constraint(equalTo: countryAndLengthView.leftAnchor),
+            countriesLabel.centerYAnchor.constraint(equalTo: countryAndLengthView.centerYAnchor),
+
+            movieLengthLabel.leftAnchor.constraint(equalTo: countriesLabel.rightAnchor, constant: 8),
+            movieLengthLabel.centerYAnchor.constraint(equalTo: countryAndLengthView.centerYAnchor),
+            movieLengthLabel.rightAnchor.constraint(equalTo: countryAndLengthView.rightAnchor),
+
+            backButton.topAnchor.constraint(equalTo: countryAndLengthView.bottomAnchor, constant: 25),
+            backButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            backButton.heightAnchor.constraint(equalToConstant: 48),
+            backButton.widthAnchor.constraint(equalToConstant: 200),
+
+            grabView.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 5),
+            grabView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            grabView.heightAnchor.constraint(equalToConstant: 5),
+            grabView.widthAnchor.constraint(equalToConstant: 35)
         ])
     }
 }
