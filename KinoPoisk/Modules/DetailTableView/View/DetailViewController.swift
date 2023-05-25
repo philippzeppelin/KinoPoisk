@@ -240,6 +240,28 @@ final class DetailViewController: UIViewController {
 
 extension DetailViewController: DetailViewProtocol {
     func setMovies(film: Film?) {
-        //
+        movieNameRuLabel.text = film?.nameRu
+        ratingLabel.text = film?.rating
+        movieLengthLabel.text = film?.filmLength
+        ratingVoteCountLabel.text = "\((film?.ratingVoteCount ?? 0) / 1000)K"
+
+        guard let ratingColor = Double(film!.rating) else { return }
+        switch ratingColor {
+        case 0..<5:  ratingLabel.textColor = .red
+        case 7...10: ratingLabel.textColor = .green
+        default: ratingLabel.textColor = .gray
+        }
+
+        //        var genres: [String] = []
+        //        for genre in film?.genres {
+        //            genres.append(genre.genre)
+        //        }
+        //        genresLabel.text = genres.joined(separator: ", ")
+
+        //        var countries: [String] = []
+        //        for country in film?.countries {
+        //            countries.append(country.country)
+        //        }
+        //        countriesLabel.text = countries.joined(separator: ", ")
     }
 }

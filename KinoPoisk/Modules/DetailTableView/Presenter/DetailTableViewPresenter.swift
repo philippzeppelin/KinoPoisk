@@ -14,6 +14,7 @@ protocol DetailViewProtocol: AnyObject {
 protocol DetailViewPresenterProtocol: AnyObject {
     init(view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, film: Film?)
     func setMovies()
+    func backButtonTapped()
 }
 
 final class DetailViewPresenter: DetailViewPresenterProtocol {
@@ -31,5 +32,10 @@ final class DetailViewPresenter: DetailViewPresenterProtocol {
 
     func setMovies() {
         self.view?.setMovies(film: film)
+    }
+
+    func backButtonTapped() {
+        print("Back button presenter tapped")
+        // router
     }
 }
