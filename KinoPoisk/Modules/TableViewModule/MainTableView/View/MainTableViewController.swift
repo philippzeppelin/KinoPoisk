@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class MainTableViewController: UIViewController {
     var presenter: MainTableViewPresenterProtocol?
@@ -82,9 +83,9 @@ extension MainTableViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.cellIdentifier, for: indexPath) as? TableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.cellIdentifier,
+                                                       for: indexPath) as? TableViewCell else { return UITableViewCell() }
         guard let film = presenter?.films[indexPath.row] else { return cell }
-//        let film = presenter?.films[indexPath.row]
 
         cell.backgroundColor = UIColor(red: 16/255, green: 14/255, blue: 15/255, alpha: 1.0)
         cell.selectionStyle = .none
@@ -97,7 +98,7 @@ extension MainTableViewController: UITableViewDataSource {
         }
 
         if let url = URL(string: film.posterUrl) {
-            cell.posterImageView.loadImage(url: url)
+            cell.posterImageView.kf.setImage(with: url)
         }
 
         return cell
@@ -111,7 +112,7 @@ extension MainTableViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let film = presenter?.films[indexPath.row]
+        guard let film = presenter?.films[indexPath.row] else { return }
         presenter?.goToDetailMovie(film: film)
         print("Tap cell")
     }

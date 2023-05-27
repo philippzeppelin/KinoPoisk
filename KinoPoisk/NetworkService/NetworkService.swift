@@ -22,7 +22,6 @@ final class NetworkService: NetworkServiceProtocol {
         request.allHTTPHeaderFields = ["X-API-KEY": "ca070bb1-cb28-4f8a-912c-5bab25ae23e7"]
         request.httpMethod = "GET"
 
-        // create URLSession
         task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -32,12 +31,10 @@ final class NetworkService: NetworkServiceProtocol {
             guard let response = response as? HTTPURLResponse,
                   response.statusCode == 200 else {
                 print("Response is nil")
-//                completion(.failure(.invalidResponse))
                 return
             }
 
             guard let data = data else {
-//                completion(.failure())
                 print("Data is nil")
                 return
             }
@@ -46,7 +43,6 @@ final class NetworkService: NetworkServiceProtocol {
                 // Parse the data
                 let decoder = JSONDecoder()
                 let movie = try decoder.decode(Movies.self, from: data)
-//                print(String(data: data, encoding: .utf8)!)
                 DispatchQueue.main.async {
                     completion(.success(movie))
                 }

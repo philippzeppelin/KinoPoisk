@@ -7,5 +7,6 @@ target 'KinoPoisk' do
 
   # Pods for KinoPoisk
 pod 'SwiftLint'
+pod 'Kingfisher'
 
 end

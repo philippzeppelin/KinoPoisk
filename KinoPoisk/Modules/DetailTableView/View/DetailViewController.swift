@@ -22,8 +22,8 @@ final class DetailViewController: UIViewController {
         return stackView
     }()
 
-    private let posterImageView: CustomImageView = {
-        let imageView = CustomImageView()
+    private let posterImageView: UIImageView = {
+        let imageView = UIImageView()
         imageView.backgroundColor = .gray
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -89,7 +89,7 @@ final class DetailViewController: UIViewController {
     private let countriesLabel: UILabel = {
         let label = UILabel()
         label.text = "США"
-//        label.font = UIFont(name: "Arial", size: 13)
+        label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -131,10 +131,6 @@ final class DetailViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
-//    private let movieNameRuLabel: UILabel = {
-//// movie description?
-//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -239,19 +235,19 @@ final class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailViewProtocol {
-    func setMovies(film: Film?) {
-        movieNameRuLabel.text = film?.nameRu
-        ratingLabel.text = film?.rating
-        movieLengthLabel.text = film?.filmLength
-        ratingVoteCountLabel.text = "\((film?.ratingVoteCount ?? 0) / 1000)K"
+    func setMovies(film: Film) {
+        movieNameRuLabel.text = film.nameRu
+        ratingLabel.text = film.rating
+        movieLengthLabel.text = film.filmLength
+        ratingVoteCountLabel.text = "\((film.ratingVoteCount) / 1000)K"
 
-        guard let ratingColor = Double(film!.rating) else { return }
+        guard let ratingColor = Double(film.rating) else { return }
         switch ratingColor {
         case 0..<5:  ratingLabel.textColor = .red
         case 7...10: ratingLabel.textColor = .green
         default: ratingLabel.textColor = .gray
         }
-
+      
         //        var genres: [String] = []
         //        for genre in film?.genres {
         //            genres.append(genre.genre)

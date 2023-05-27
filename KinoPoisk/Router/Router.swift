@@ -14,7 +14,7 @@ protocol RouterMain {
 
 protocol RouterProtocol: RouterMain {
     func initialViewController()
-    func showDetail(film: Film?)
+    func showDetail(film: Film)
 }
 
 final class Router: RouterProtocol {
@@ -32,7 +32,7 @@ final class Router: RouterProtocol {
         rootController?.pushViewController(mainViewController!, animated: true)
     }
 
-    func showDetail(film: Film?) {
+    func showDetail(film: Film) {
         if let rootController = rootController {
             guard let detailTableView = builder?.createDetailTableViewModule(router: self, film: film) else { return }
             rootController.pushViewController(detailTableView, animated: true)

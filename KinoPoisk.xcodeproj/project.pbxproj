@@ -10,20 +10,17 @@
 		04FEC1CCC59EBBBDBF61D18C /* Pods_KinoPoisk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DA003CF6A96270933BB6FC /* Pods_KinoPoisk.framework */; };
 		E70920F92A12AE3900AFE32D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70920F82A12AE3900AFE32D /* DetailViewController.swift */; };
 		E70920FB2A12B2EE00AFE32D /* DetailTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70920FA2A12B2EE00AFE32D /* DetailTableViewPresenter.swift */; };
-		E76D54342A0C183900E0AB15 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76D54332A0C183900E0AB15 /* CustomImageView.swift */; };
 		E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */; };
 		E7B5768A29E47EBD00F01FA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768929E47EBD00F01FA8 /* SceneDelegate.swift */; };
 		E7B5768C29E47EBD00F01FA8 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768B29E47EBD00F01FA8 /* MainTableViewController.swift */; };
 		E7B5768F29E47EBD00F01FA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7B5768D29E47EBD00F01FA8 /* Main.storyboard */; };
 		E7B5769129E47EBE00F01FA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7B5769029E47EBE00F01FA8 /* Assets.xcassets */; };
 		E7B5769429E47EBE00F01FA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7B5769229E47EBE00F01FA8 /* LaunchScreen.storyboard */; };
-		E7B576A429EDE14900F01FA8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576A329EDE14900F01FA8 /* MainTabBarController.swift */; };
 		E7B576A929EDE3D200F01FA8 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576A829EDE3D200F01FA8 /* CollectionView.swift */; };
 		E7B576E429FE64A600F01FA8 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576E329FE64A600F01FA8 /* Movies.swift */; };
 		E7B576E629FE6D1A00F01FA8 /* MainTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576E529FE6D1A00F01FA8 /* MainTableViewPresenter.swift */; };
 		E7B576EC29FE6EEE00F01FA8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576EB29FE6EEE00F01FA8 /* TableViewCell.swift */; };
 		E7B576F429FFA90000F01FA8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B576F329FFA90000F01FA8 /* NetworkService.swift */; };
-		E7B577042A042A5C00F01FA8 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B577032A042A5C00F01FA8 /* ErrorResponse.swift */; };
 		E7FD0A8A2A0902C300D576B1 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FD0A892A0902C300D576B1 /* ModuleBuilder.swift */; };
 		E7FD0A8D2A0905EB00D576B1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FD0A8C2A0905EB00D576B1 /* Router.swift */; };
 /* End PBXBuildFile section */
@@ -34,7 +31,6 @@
 		D1DA003CF6A96270933BB6FC /* Pods_KinoPoisk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KinoPoisk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E70920F82A12AE3900AFE32D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E70920FA2A12B2EE00AFE32D /* DetailTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewPresenter.swift; sourceTree = "<group>"; };
-		E76D54332A0C183900E0AB15 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		E7B5768429E47EBD00F01FA8 /* KinoPoisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinoPoisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7B5768929E47EBD00F01FA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,13 +40,11 @@
 		E7B5769329E47EBE00F01FA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7B5769529E47EBE00F01FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7B5769F29EDDE5300F01FA8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		E7B576A329EDE14900F01FA8 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E7B576A829EDE3D200F01FA8 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		E7B576E329FE64A600F01FA8 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		E7B576E529FE6D1A00F01FA8 /* MainTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewPresenter.swift; sourceTree = "<group>"; };
 		E7B576EB29FE6EEE00F01FA8 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		E7B576F329FFA90000F01FA8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		E7B577032A042A5C00F01FA8 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		E7FD0A892A0902C300D576B1 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		E7FD0A8C2A0905EB00D576B1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +85,7 @@
 				E7B5768529E47EBD00F01FA8 /* Products */,
 				08B0E4BB24FA36EBE506C2D6 /* Pods */,
 				25317C604544A05D3738EA55 /* Frameworks */,
+				E7B5769F29EDDE5300F01FA8 /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,8 +105,6 @@
 				E7FD0A882A0902A200D576B1 /* Builder */,
 				E7B576F029FFA6C500F01FA8 /* NetworkService */,
 				E7B576A529EDE38C00F01FA8 /* Modules */,
-				E7B576E729FE6D4600F01FA8 /* UI */,
-				E7B5769F29EDDE5300F01FA8 /* .swiftlint.yml */,
 			);
 			path = KinoPoisk;
 			sourceTree = "<group>";
@@ -159,7 +152,6 @@
 			children = (
 				E7B5768B29E47EBD00F01FA8 /* MainTableViewController.swift */,
 				E7B576EB29FE6EEE00F01FA8 /* TableViewCell.swift */,
-				E76D54332A0C183900E0AB15 /* CustomImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,14 +187,6 @@
 				E7B576A829EDE3D200F01FA8 /* CollectionView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E7B576E729FE6D4600F01FA8 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				E7B576A329EDE14900F01FA8 /* MainTabBarController.swift */,
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		E7B576E929FE6E6C00F01FA8 /* MainTableView */ = {
@@ -244,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				E7B576F329FFA90000F01FA8 /* NetworkService.swift */,
-				E7B577032A042A5C00F01FA8 /* ErrorResponse.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -277,6 +260,7 @@
 				E7B5768129E47EBD00F01FA8 /* Frameworks */,
 				E7B5768229E47EBD00F01FA8 /* Resources */,
 				E7B5769B29EDD85F00F01FA8 /* SwiftLint */,
+				5BB0BF9FECDF620ED839EA26 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -356,6 +340,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5BB0BF9FECDF620ED839EA26 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KinoPoisk/Pods-KinoPoisk-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KinoPoisk/Pods-KinoPoisk-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KinoPoisk/Pods-KinoPoisk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E7B5769B29EDD85F00F01FA8 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -389,14 +390,11 @@
 				E70920FB2A12B2EE00AFE32D /* DetailTableViewPresenter.swift in Sources */,
 				E7B576A929EDE3D200F01FA8 /* CollectionView.swift in Sources */,
 				E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */,
-				E7B577042A042A5C00F01FA8 /* ErrorResponse.swift in Sources */,
 				E7B576E429FE64A600F01FA8 /* Movies.swift in Sources */,
-				E7B576A429EDE14900F01FA8 /* MainTabBarController.swift in Sources */,
 				E7B5768A29E47EBD00F01FA8 /* SceneDelegate.swift in Sources */,
 				E7B576E629FE6D1A00F01FA8 /* MainTableViewPresenter.swift in Sources */,
 				E7FD0A8A2A0902C300D576B1 /* ModuleBuilder.swift in Sources */,
 				E7FD0A8D2A0905EB00D576B1 /* Router.swift in Sources */,
-				E76D54342A0C183900E0AB15 /* CustomImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
