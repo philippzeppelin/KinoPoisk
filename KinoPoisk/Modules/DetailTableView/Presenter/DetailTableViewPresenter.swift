@@ -35,7 +35,6 @@ final class DetailViewPresenter: DetailViewPresenterProtocol {
     }
 
     func backButtonTapped() {
-        print("Back button presenter tapped")
-        // router
+        router?.popToRoot()
     }
 }

@@ -15,6 +15,7 @@ protocol RouterMain {
 protocol RouterProtocol: RouterMain {
     func initialViewController()
     func showDetail(film: Film)
+    func popToRoot()
 }
 
 final class Router: RouterProtocol {
@@ -36,6 +37,12 @@ final class Router: RouterProtocol {
         if let rootController = rootController {
             guard let detailTableView = builder?.createDetailTableViewModule(router: self, film: film) else { return }
             rootController.pushViewController(detailTableView, animated: true)
+        }
+    }
+
+    func popToRoot() {
+        if let rootController = rootController {
+            rootController.popToRootViewController(animated: true)
         }
     }
 }

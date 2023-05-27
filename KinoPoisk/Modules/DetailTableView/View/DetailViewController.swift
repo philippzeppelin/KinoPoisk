@@ -137,7 +137,7 @@ final class DetailViewController: UIViewController {
     }
 
     @objc private func backButtonTapped() {
-        print("tapped back button")
+        presenter?.backButtonTapped()
     }
 
     private func setup() {

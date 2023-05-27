@@ -114,7 +114,6 @@ extension MainTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let film = presenter?.films[indexPath.row] else { return }
         presenter?.goToDetailMovie(film: film)
-        print("Tap cell")
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

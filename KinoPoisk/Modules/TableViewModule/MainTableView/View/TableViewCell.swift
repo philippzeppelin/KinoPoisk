@@ -17,12 +17,6 @@ final class TableViewCell: UITableViewCell {
         return view
     }()
 
-//        let posterImageView: CustomImageView = {
-//        let imageView = CustomImageView()
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        return imageView
-//    }()
-
     let posterImageView: UIImageView = {
            let imageView = UIImageView()
            imageView.translatesAutoresizingMaskIntoConstraints = false

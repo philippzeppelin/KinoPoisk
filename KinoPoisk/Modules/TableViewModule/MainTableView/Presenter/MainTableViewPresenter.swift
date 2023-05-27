@@ -58,6 +58,5 @@ final class MainTableViewPresenter: MainTableViewPresenterProtocol {
 
     func goToDetailMovie(film: Film) {
         router?.showDetail(film: film)
-        print("tap")
     }
 }
