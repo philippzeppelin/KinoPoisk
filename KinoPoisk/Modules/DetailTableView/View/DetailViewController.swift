@@ -31,16 +31,9 @@ final class DetailViewController: UIViewController {
 
     private let movieNameRuLabel: UILabel = {
         let label = UILabel()
-        label.text = "Джон Уик 4"
-        label.font = UIFont(name: "Arial Bold", size: 30)
-        label.textColor = .white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let movieNameEnLabel: UILabel = {
-        let label = UILabel()
-        label.text = "John Wick 4"
+        label.font = UIFont(name: "Arial Bold", size: 25)
+        label.numberOfLines = 0
+        label.textAlignment = .center
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -48,7 +41,7 @@ final class DetailViewController: UIViewController {
 
     private let ratingLabel: UILabel = {
         let label = UILabel()
-        label.text = "7.7"
+        label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -56,7 +49,7 @@ final class DetailViewController: UIViewController {
 
     private let ratingVoteCountLabel: UILabel = {
         let label = UILabel()
-        label.text = "98K"
+        label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -64,15 +57,17 @@ final class DetailViewController: UIViewController {
 
     private let movieYearLabel: UILabel = {
         let label = UILabel()
-        label.text = "2023"
+        label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
+//        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     private let genresLabel: UILabel = {
         let label = UILabel()
-        label.text = "боевик"
+        label.font = UIFont(name: "Arial", size: 13)
+//        label.textAlignment = .left
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -80,7 +75,7 @@ final class DetailViewController: UIViewController {
 
     private let movieLengthLabel: UILabel = {
         let label = UILabel()
-        label.text = "2:23"
+        label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -88,7 +83,6 @@ final class DetailViewController: UIViewController {
 
     private let countriesLabel: UILabel = {
         let label = UILabel()
-//        label.text = "США"
         label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -188,11 +182,12 @@ final class DetailViewController: UIViewController {
             posterImageView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
             posterImageView.heightAnchor.constraint(equalToConstant: 650),
 
-            movieNameRuLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 50),
-            movieNameRuLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            movieNameRuLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 40),
+            movieNameRuLabel.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 20),
+            scrollView.rightAnchor.constraint(equalTo: movieNameRuLabel.rightAnchor, constant: 20),
 
             ratingsView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            ratingLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: 25),
+            ratingLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: 20),
 
             ratingLabel.leftAnchor.constraint(equalTo: ratingsView.leftAnchor),
             ratingLabel.centerYAnchor.constraint(equalTo: ratingsView.centerYAnchor),
@@ -201,18 +196,20 @@ final class DetailViewController: UIViewController {
             ratingVoteCountLabel.centerYAnchor.constraint(equalTo: ratingsView.centerYAnchor),
             ratingVoteCountLabel.rightAnchor.constraint(equalTo: ratingsView.rightAnchor),
 
+            yearAndGenreView.topAnchor.constraint(equalTo: ratingsView.bottomAnchor, constant: 20),
             yearAndGenreView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            yearAndGenreView.topAnchor.constraint(equalTo: ratingsView.bottomAnchor, constant: 25),
+            yearAndGenreView.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 20),
+            scrollView.rightAnchor.constraint(equalTo: yearAndGenreView.rightAnchor, constant: 20),
 
             movieYearLabel.leftAnchor.constraint(equalTo: yearAndGenreView.leftAnchor),
             movieYearLabel.centerYAnchor.constraint(equalTo: yearAndGenreView.centerYAnchor),
 
-            genresLabel.leftAnchor.constraint(equalTo: movieYearLabel.rightAnchor, constant: 8),
+            genresLabel.leftAnchor.constraint(equalTo: movieYearLabel.rightAnchor, constant: 3),
             genresLabel.centerYAnchor.constraint(equalTo: yearAndGenreView.centerYAnchor),
             genresLabel.rightAnchor.constraint(equalTo: yearAndGenreView.rightAnchor),
 
             countryAndLengthView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            countryAndLengthView.topAnchor.constraint(equalTo: yearAndGenreView.bottomAnchor, constant: 25),
+            countryAndLengthView.topAnchor.constraint(equalTo: yearAndGenreView.bottomAnchor, constant: 22),
 
             countriesLabel.leftAnchor.constraint(equalTo: countryAndLengthView.leftAnchor),
             countriesLabel.centerYAnchor.constraint(equalTo: countryAndLengthView.centerYAnchor),
@@ -240,7 +237,7 @@ extension DetailViewController: DetailViewProtocol {
         ratingLabel.text = film.rating
         movieLengthLabel.text = film.filmLength
         movieYearLabel.text = film.year
-        ratingVoteCountLabel.text = "\((film.ratingVoteCount) / 1000)K"
+        ratingVoteCountLabel.text = "\(film.ratingVoteCount / 1000)K"
 
         guard let ratingColor = Double(film.rating) else { return }
         switch ratingColor {
