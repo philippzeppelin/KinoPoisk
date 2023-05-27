@@ -88,7 +88,7 @@ final class DetailViewController: UIViewController {
 
     private let countriesLabel: UILabel = {
         let label = UILabel()
-        label.text = "США"
+//        label.text = "США"
         label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -239,6 +239,7 @@ extension DetailViewController: DetailViewProtocol {
         movieNameRuLabel.text = film.nameRu
         ratingLabel.text = film.rating
         movieLengthLabel.text = film.filmLength
+        movieYearLabel.text = film.year
         ratingVoteCountLabel.text = "\((film.ratingVoteCount) / 1000)K"
 
         guard let ratingColor = Double(film.rating) else { return }
@@ -247,17 +248,21 @@ extension DetailViewController: DetailViewProtocol {
         case 7...10: ratingLabel.textColor = .green
         default: ratingLabel.textColor = .gray
         }
-      
-        //        var genres: [String] = []
-        //        for genre in film?.genres {
-        //            genres.append(genre.genre)
-        //        }
-        //        genresLabel.text = genres.joined(separator: ", ")
 
-        //        var countries: [String] = []
-        //        for country in film?.countries {
-        //            countries.append(country.country)
-        //        }
-        //        countriesLabel.text = countries.joined(separator: ", ")
+        var genres: [String] = []
+        for genre in film.genres {
+            genres.append(genre.genre)
+        }
+        genresLabel.text = genres.joined(separator: ", ")
+
+        var countries: [String] = []
+        for country in film.countries {
+            countries.append(country.country)
+        }
+        countriesLabel.text = countries.joined(separator: ", ")
+
+        if let url = URL(string: film.posterUrl) {
+            posterImageView.kf.setImage(with: url)
+        }
     }
 }
