@@ -10,6 +10,7 @@ import UIKit
 final class DetailViewController: UIViewController {
     var presenter: DetailViewPresenterProtocol?
 
+    // MARK: - UI
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -136,10 +137,21 @@ final class DetailViewController: UIViewController {
         setup()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
     @objc private func backButtonTapped() {
         presenter?.backButtonTapped()
     }
 
+    // MARK: - Setup UI
     private func setup() {
         setupInterface()
         setupConstraints()
@@ -231,6 +243,7 @@ final class DetailViewController: UIViewController {
     }
 }
 
+// MARK: - Extension
 extension DetailViewController: DetailViewProtocol {
     func setMovies(film: Film) {
         movieNameRuLabel.text = film.nameRu

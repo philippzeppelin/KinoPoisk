@@ -61,6 +61,7 @@ final class MainTableViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = .black
         navigationController?.navigationBar.barTintColor = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.isHidden = false
     }
 }
 
