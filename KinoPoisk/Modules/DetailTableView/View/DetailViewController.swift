@@ -210,10 +210,11 @@ final class DetailViewController: UIViewController {
 
             yearAndGenreView.topAnchor.constraint(equalTo: ratingsView.bottomAnchor, constant: 20),
             yearAndGenreView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            yearAndGenreView.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 20),
-            scrollView.rightAnchor.constraint(equalTo: yearAndGenreView.rightAnchor, constant: 20),
+//            yearAndGenreView.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 20),
+//            scrollView.rightAnchor.constraint(equalTo: yearAndGenreView.rightAnchor, constant: 20),
 
             movieYearLabel.leftAnchor.constraint(equalTo: yearAndGenreView.leftAnchor),
+            movieYearLabel.widthAnchor.constraint(equalToConstant: 30),
             movieYearLabel.centerYAnchor.constraint(equalTo: yearAndGenreView.centerYAnchor),
 
             genresLabel.leftAnchor.constraint(equalTo: movieYearLabel.rightAnchor, constant: 3),

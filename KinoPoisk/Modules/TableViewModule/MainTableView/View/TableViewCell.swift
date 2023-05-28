@@ -68,7 +68,7 @@ final class TableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
-//        label.textAlignment = .right
+        label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -77,6 +77,7 @@ final class TableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .gray
+        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -169,9 +170,11 @@ final class TableViewCell: UITableViewCell {
 
             cellView.bottomAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 10),
             ratingLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
+            ratingLabel.widthAnchor.constraint(equalToConstant: 20),
 
             cellView.rightAnchor.constraint(equalTo: movieLengthLabel.rightAnchor, constant: 10),
             cellView.bottomAnchor.constraint(equalTo: movieLengthLabel.bottomAnchor, constant: 10),
+            movieLengthLabel.widthAnchor.constraint(equalToConstant: 35),
 
             ratingVoteCountLabel.leftAnchor.constraint(equalTo: ratingLabel.rightAnchor, constant: 3),
             cellView.bottomAnchor.constraint(equalTo: ratingVoteCountLabel.bottomAnchor, constant: 10),
@@ -180,6 +183,7 @@ final class TableViewCell: UITableViewCell {
             movieYearLabel.leftAnchor.constraint(equalTo: movieNameEnLabel.rightAnchor, constant: 5),
 
             movieLengthLabel.leftAnchor.constraint(equalTo: countriesLabel.rightAnchor, constant: 5),
+            countriesLabel.leftAnchor.constraint(equalTo: ratingVoteCountLabel.rightAnchor, constant: 5),
             cellView.bottomAnchor.constraint(equalTo: countriesLabel.bottomAnchor, constant: 10)
         ])
     }
