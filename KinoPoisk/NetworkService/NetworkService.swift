@@ -40,7 +40,6 @@ final class NetworkService: NetworkServiceProtocol {
             }
 
             do {
-                // Parse the data
                 let decoder = JSONDecoder()
                 let movie = try decoder.decode(Movies.self, from: data)
                 DispatchQueue.main.async {

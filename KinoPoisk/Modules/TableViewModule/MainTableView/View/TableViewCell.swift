@@ -18,10 +18,10 @@ final class TableViewCell: UITableViewCell {
     }()
 
     let posterImageView: UIImageView = {
-           let imageView = UIImageView()
-           imageView.translatesAutoresizingMaskIntoConstraints = false
-           return imageView
-       }()
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 
     private let movieNameRuLabel: UILabel = {
         let label = UILabel()
@@ -188,4 +188,3 @@ final class TableViewCell: UITableViewCell {
         ])
     }
 }
-// проверить сделать констрейнтрейтинг к рейтингу фильма и странам

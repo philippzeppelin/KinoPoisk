@@ -60,7 +60,6 @@ final class DetailViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont(name: "Arial", size: 13)
         label.textColor = .white
-//        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -68,7 +67,6 @@ final class DetailViewController: UIViewController {
     private let genresLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Arial", size: 13)
-//        label.textAlignment = .left
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -210,8 +208,6 @@ final class DetailViewController: UIViewController {
 
             yearAndGenreView.topAnchor.constraint(equalTo: ratingsView.bottomAnchor, constant: 20),
             yearAndGenreView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-//            yearAndGenreView.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 20),
-//            scrollView.rightAnchor.constraint(equalTo: yearAndGenreView.rightAnchor, constant: 20),
 
             movieYearLabel.leftAnchor.constraint(equalTo: yearAndGenreView.leftAnchor),
             movieYearLabel.widthAnchor.constraint(equalToConstant: 30),

@@ -27,12 +27,9 @@ final class MainTableViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .clear
-
         setup()
-
         tableView.dataSource = self
         tableView.delegate = self
-
         presenter?.getMovies()
     }
 
@@ -92,7 +89,6 @@ extension MainTableViewController: UITableViewDataSource {
         cell.selectionStyle = .none
 
         if let movie = presenter?.films[indexPath.row] {
-
             cell.updateUI(movies: movie)
         } else {
             print("Ячейки не заполнились")
@@ -101,7 +97,6 @@ extension MainTableViewController: UITableViewDataSource {
         if let url = URL(string: film.posterUrl) {
             cell.posterImageView.kf.setImage(with: url)
         }
-
         return cell
     }
 }
