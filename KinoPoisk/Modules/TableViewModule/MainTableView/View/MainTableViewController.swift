@@ -25,7 +25,6 @@ final class MainTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .clear
         setup()
         tableView.dataSource = self

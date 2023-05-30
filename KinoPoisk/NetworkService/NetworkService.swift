@@ -42,13 +42,13 @@ final class NetworkService: NetworkServiceProtocol {
             do {
                 let decoder = JSONDecoder()
                 let movie = try decoder.decode(Movies.self, from: data)
-                DispatchQueue.main.async {
+//                DispatchQueue.main.async {
                     completion(.success(movie))
-                }
+//                }
             } catch let error {
-                DispatchQueue.main.async {
+//                DispatchQueue.main.async {
                     completion(.failure(error))
-                }
+//                }
             }
         }
         task?.resume()

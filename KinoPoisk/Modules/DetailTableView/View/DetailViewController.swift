@@ -127,32 +127,29 @@ final class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .black
-
         presenter?.setMovies()
-
         setup()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        setupNavigationController()
     }
 
     @objc private func backButtonTapped() {
         presenter?.backButtonTapped()
     }
 
+    private func setupNavigationController() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"),
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(backButtonTapped))
+        navigationItem.leftBarButtonItem?.tintColor = .white
+    }
+
     // MARK: - Setup UI
     private func setup() {
         setupInterface()
         setupConstraints()
+        setupNavigationController()
     }
 
     private func setupInterface() {

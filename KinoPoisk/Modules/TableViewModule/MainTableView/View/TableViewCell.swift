@@ -132,7 +132,7 @@ final class TableViewCell: UITableViewCell {
     }
 
     private func setupInterface() {
-        self.addSubview(cellView)
+        addSubview(cellView)
         cellView.addSubview(posterImageView)
         cellView.addSubview(movieNameRuLabel)
         cellView.addSubview(movieNameEnLabel)
@@ -146,10 +146,10 @@ final class TableViewCell: UITableViewCell {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            cellView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
-            cellView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8),
-            self.rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: 8),
-            self.bottomAnchor.constraint(equalTo: cellView.bottomAnchor),
+            cellView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            cellView.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
+            rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: 8),
+            bottomAnchor.constraint(equalTo: cellView.bottomAnchor),
 
             posterImageView.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 5),
             posterImageView.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 5),
