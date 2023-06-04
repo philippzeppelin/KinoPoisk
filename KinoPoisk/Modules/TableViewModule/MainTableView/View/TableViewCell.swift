@@ -125,7 +125,10 @@ final class TableViewCell: UITableViewCell {
         default: ratingLabel.textColor = .gray
         }
     }
+}
 
+// MARK: - Setup UI
+extension TableViewCell {
     private func setup() {
         setupInterface()
         setupConstraints()

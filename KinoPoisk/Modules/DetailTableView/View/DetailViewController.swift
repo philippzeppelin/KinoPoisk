@@ -144,8 +144,10 @@ final class DetailViewController: UIViewController {
                                                            action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem?.tintColor = .white
     }
+}
 
     // MARK: - Setup UI
+extension DetailViewController {
     private func setup() {
         setupInterface()
         setupConstraints()
