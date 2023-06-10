@@ -1,16 +1,11 @@
 //
-//  Movies.swift
+//  Film.swift
 //  KinoPoisk
 //
-//  Created by Philipp Zeppelin on 30.04.2023.
+//  Created by Philipp Zeppelin on 10.06.2023.
 //
 
 import Foundation
-
-struct Movies: Codable {
-    var pagesCount: Int
-    var films: [Film]
-}
 
 struct Film: Codable {
     var filmId: Int
@@ -24,12 +19,4 @@ struct Film: Codable {
     var ratingVoteCount: Int
     var posterUrl: String
     var posterURLPreview: String?
-}
-
-struct Countries: Codable {
-    var country: String
-}
-
-struct Genres: Codable {
-    var genre: String
 }
