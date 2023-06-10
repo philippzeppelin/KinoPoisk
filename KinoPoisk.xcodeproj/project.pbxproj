@@ -11,7 +11,6 @@
 		E70920F92A12AE3900AFE32D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70920F82A12AE3900AFE32D /* DetailViewController.swift */; };
 		E70920FB2A12B2EE00AFE32D /* DetailTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70920FA2A12B2EE00AFE32D /* DetailTableViewPresenter.swift */; };
 		E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */; };
-		E7B5768A29E47EBD00F01FA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768929E47EBD00F01FA8 /* SceneDelegate.swift */; };
 		E7B5768C29E47EBD00F01FA8 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768B29E47EBD00F01FA8 /* MainTableViewController.swift */; };
 		E7B5769129E47EBE00F01FA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7B5769029E47EBE00F01FA8 /* Assets.xcassets */; };
 		E7B5769429E47EBE00F01FA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7B5769229E47EBE00F01FA8 /* LaunchScreen.storyboard */; };
@@ -31,7 +30,6 @@
 		E70920FA2A12B2EE00AFE32D /* DetailTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewPresenter.swift; sourceTree = "<group>"; };
 		E7B5768429E47EBD00F01FA8 /* KinoPoisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinoPoisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7B5768929E47EBD00F01FA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E7B5768B29E47EBD00F01FA8 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		E7B5769029E47EBE00F01FA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7B5769329E47EBE00F01FA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */,
-				E7B5768929E47EBD00F01FA8 /* SceneDelegate.swift */,
 				E7B5769029E47EBE00F01FA8 /* Assets.xcassets */,
 				E7B5769229E47EBE00F01FA8 /* LaunchScreen.storyboard */,
 				E7B5769529E47EBE00F01FA8 /* Info.plist */,
@@ -359,7 +356,6 @@
 				E70920FB2A12B2EE00AFE32D /* DetailTableViewPresenter.swift in Sources */,
 				E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */,
 				E7B576E429FE64A600F01FA8 /* Movies.swift in Sources */,
-				E7B5768A29E47EBD00F01FA8 /* SceneDelegate.swift in Sources */,
 				E7B576E629FE6D1A00F01FA8 /* MainTableViewPresenter.swift in Sources */,
 				E7FD0A8A2A0902C300D576B1 /* ModuleBuilder.swift in Sources */,
 				E7FD0A8D2A0905EB00D576B1 /* Router.swift in Sources */,
