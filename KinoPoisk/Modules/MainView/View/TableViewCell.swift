@@ -91,7 +91,8 @@ final class TableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setup()
+        embedView()
+        setupLayout()
     }
 
     required init?(coder: NSCoder) {
@@ -129,12 +130,7 @@ final class TableViewCell: UITableViewCell {
 
 // MARK: - Setup UI
 extension TableViewCell {
-    private func setup() {
-        setupInterface()
-        setupConstraints()
-    }
-
-    private func setupInterface() {
+    private func embedView() {
         addSubview(cellView)
         cellView.addSubview(posterImageView)
         cellView.addSubview(movieNameRuLabel)
@@ -147,47 +143,47 @@ extension TableViewCell {
         cellView.addSubview(countriesLabel)
     }
 
-    private func setupConstraints() {
+    private func setupLayout() {
         NSLayoutConstraint.activate([
-            cellView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            cellView.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
-            rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: 8),
+            cellView.topAnchor.constraint(equalTo: topAnchor, constant: .cellViewTopLeftRightAnchor),
+            cellView.leftAnchor.constraint(equalTo: leftAnchor, constant: .cellViewTopLeftRightAnchor),
+            rightAnchor.constraint(equalTo: cellView.rightAnchor, constant: .cellViewTopLeftRightAnchor),
             bottomAnchor.constraint(equalTo: cellView.bottomAnchor),
 
-            posterImageView.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 5),
-            posterImageView.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 5),
-            posterImageView.widthAnchor.constraint(equalToConstant: 75),
-            cellView.bottomAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 5),
+            posterImageView.topAnchor.constraint(equalTo: cellView.topAnchor, constant: .posterImageViewTopLeftBottomAnchor),
+            posterImageView.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: .posterImageViewTopLeftBottomAnchor),
+            posterImageView.widthAnchor.constraint(equalToConstant: .posterImageViewWidth),
+            cellView.bottomAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: .posterImageViewTopLeftBottomAnchor),
 
-            movieNameRuLabel.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 10),
-            movieNameRuLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
-            cellView.rightAnchor.constraint(equalTo: movieNameRuLabel.rightAnchor, constant: 10),
+            movieNameRuLabel.topAnchor.constraint(equalTo: cellView.topAnchor, constant: .movieNameRuLabelTopLeftRightAnchor),
+            movieNameRuLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: .movieNameRuLabelTopLeftRightAnchor),
+            cellView.rightAnchor.constraint(equalTo: movieNameRuLabel.rightAnchor, constant: .movieNameRuLabelTopLeftRightAnchor),
 
-            movieNameEnLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: 3),
-            movieNameEnLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
-            cellView.rightAnchor.constraint(equalTo: movieNameEnLabel.rightAnchor, constant: 10),
+            movieNameEnLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: .movieNameEnLabelTopAnchor),
+            movieNameEnLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: .movieNameEnLabelLeftRightAnchor),
+            cellView.rightAnchor.constraint(equalTo: movieNameEnLabel.rightAnchor, constant: .movieNameEnLabelLeftRightAnchor),
 
-            genresLabel.topAnchor.constraint(equalTo: movieNameEnLabel.bottomAnchor, constant: 2),
-            genresLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
-            cellView.rightAnchor.constraint(equalTo: genresLabel.rightAnchor, constant: 10),
+            genresLabel.topAnchor.constraint(equalTo: movieNameEnLabel.bottomAnchor, constant: .genresLabelTopAnchor),
+            genresLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: .genresLabelLeftRightAnchor),
+            cellView.rightAnchor.constraint(equalTo: genresLabel.rightAnchor, constant: .genresLabelLeftRightAnchor),
 
-            cellView.bottomAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 10),
-            ratingLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
-            ratingLabel.widthAnchor.constraint(equalToConstant: 20),
+            cellView.bottomAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: .ratingLabelBottomLeftAnchor),
+            ratingLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: .ratingLabelBottomLeftAnchor),
+            ratingLabel.widthAnchor.constraint(equalToConstant: .ratingLabelWidthAnchor),
 
-            cellView.rightAnchor.constraint(equalTo: movieLengthLabel.rightAnchor, constant: 10),
-            cellView.bottomAnchor.constraint(equalTo: movieLengthLabel.bottomAnchor, constant: 10),
-            movieLengthLabel.widthAnchor.constraint(equalToConstant: 35),
+            cellView.rightAnchor.constraint(equalTo: movieLengthLabel.rightAnchor, constant: .movieLengthLabelRightBottomAnchor),
+            cellView.bottomAnchor.constraint(equalTo: movieLengthLabel.bottomAnchor, constant: .movieLengthLabelRightBottomAnchor),
+            movieLengthLabel.widthAnchor.constraint(equalToConstant: .movieLengthLabelWidthAnchor),
 
-            ratingVoteCountLabel.leftAnchor.constraint(equalTo: ratingLabel.rightAnchor, constant: 3),
-            cellView.bottomAnchor.constraint(equalTo: ratingVoteCountLabel.bottomAnchor, constant: 10),
+            ratingVoteCountLabel.leftAnchor.constraint(equalTo: ratingLabel.rightAnchor, constant: .ratingVoteCountLabelLeftAnchor),
+            cellView.bottomAnchor.constraint(equalTo: ratingVoteCountLabel.bottomAnchor, constant: .ratingVoteCountLabelBottomAnchor),
 
-            movieYearLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: 3),
-            movieYearLabel.leftAnchor.constraint(equalTo: movieNameEnLabel.rightAnchor, constant: 5),
+            movieYearLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: .movieYearLabelTopAnchor),
+            movieYearLabel.leftAnchor.constraint(equalTo: movieNameEnLabel.rightAnchor, constant: .movieYearLabelLeftAnchor),
 
-            movieLengthLabel.leftAnchor.constraint(equalTo: countriesLabel.rightAnchor, constant: 5),
-            countriesLabel.leftAnchor.constraint(equalTo: ratingVoteCountLabel.rightAnchor, constant: 5),
-            cellView.bottomAnchor.constraint(equalTo: countriesLabel.bottomAnchor, constant: 10)
+            movieLengthLabel.leftAnchor.constraint(equalTo: countriesLabel.rightAnchor, constant: .movieLengthLabelLeftAnchor),
+            countriesLabel.leftAnchor.constraint(equalTo: ratingVoteCountLabel.rightAnchor, constant: .countriesLabelLeftAnchor),
+            cellView.bottomAnchor.constraint(equalTo: countriesLabel.bottomAnchor, constant: .countriesLabelBottomAnchor)
         ])
     }
 }

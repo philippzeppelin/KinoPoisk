@@ -128,8 +128,11 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+
         presenter?.setMovies()
-        setup()
+
+        embedView()
+        setupLayout()
         setupNavigationController()
     }
 
@@ -148,13 +151,7 @@ final class DetailViewController: UIViewController {
 
     // MARK: - Setup UI
 extension DetailViewController {
-    private func setup() {
-        setupInterface()
-        setupConstraints()
-        setupNavigationController()
-    }
-
-    private func setupInterface() {
+    private func embedView() {
         view.addSubview(scrollView)
         scrollView.addSubview(scrollStackView)
         scrollView.addSubview(posterImageView)
@@ -172,7 +169,7 @@ extension DetailViewController {
         scrollView.addSubview(grabView)
     }
 
-    private func setupConstraints() {
+    private func setupLayout() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),

@@ -26,24 +26,22 @@ final class MainTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
-        setup()
+
+        embedView()
+        setupLayout()
+
         tableView.dataSource = self
         tableView.delegate = self
+
         presenter?.getMovies()
     }
 
     // MARK: - Setup UI
-    private func setup() {
-        setupInterface()
-        setupConstraint()
-        setupNavigationController()
-    }
-
-    private func setupInterface() {
+    private func embedView() {
         view.addSubview(tableView)
     }
 
-    private func setupConstraint() {
+    private func setupLayout() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
