@@ -181,56 +181,56 @@ extension DetailViewController {
             scrollStackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
             scrollStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             scrollStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            scrollStackView.heightAnchor.constraint(equalToConstant: 900),
+            scrollStackView.heightAnchor.constraint(equalToConstant: .scrollStackViewHeight),
 
             posterImageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             posterImageView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             posterImageView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
-            posterImageView.heightAnchor.constraint(equalToConstant: 650),
+            posterImageView.heightAnchor.constraint(equalToConstant: .posterImageViewHeight),
 
-            movieNameRuLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 40),
-            movieNameRuLabel.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 20),
-            scrollView.rightAnchor.constraint(equalTo: movieNameRuLabel.rightAnchor, constant: 20),
+            movieNameRuLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: .movieNameRuLabelTopAnchor),
+            movieNameRuLabel.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: .movieNameRuLabelLeftRightAnchor),
+            scrollView.rightAnchor.constraint(equalTo: movieNameRuLabel.rightAnchor, constant: .movieNameRuLabelLeftRightAnchor),
 
             ratingsView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            ratingLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: 20),
+            ratingLabel.topAnchor.constraint(equalTo: movieNameRuLabel.bottomAnchor, constant: .ratingLabelTopAnchor),
 
             ratingLabel.leftAnchor.constraint(equalTo: ratingsView.leftAnchor),
             ratingLabel.centerYAnchor.constraint(equalTo: ratingsView.centerYAnchor),
 
-            ratingVoteCountLabel.leftAnchor.constraint(equalTo: ratingLabel.rightAnchor, constant: 8),
+            ratingVoteCountLabel.leftAnchor.constraint(equalTo: ratingLabel.rightAnchor, constant: .detailRatingVoteCountLabelLeftAnchor),
             ratingVoteCountLabel.centerYAnchor.constraint(equalTo: ratingsView.centerYAnchor),
             ratingVoteCountLabel.rightAnchor.constraint(equalTo: ratingsView.rightAnchor),
 
-            yearAndGenreView.topAnchor.constraint(equalTo: ratingsView.bottomAnchor, constant: 20),
+            yearAndGenreView.topAnchor.constraint(equalTo: ratingsView.bottomAnchor, constant: .yearAndGenreViewTopAnchor),
             yearAndGenreView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
 
             movieYearLabel.leftAnchor.constraint(equalTo: yearAndGenreView.leftAnchor),
-            movieYearLabel.widthAnchor.constraint(equalToConstant: 30),
+            movieYearLabel.widthAnchor.constraint(equalToConstant: .movieYearLabelWidthAnchor),
             movieYearLabel.centerYAnchor.constraint(equalTo: yearAndGenreView.centerYAnchor),
 
-            genresLabel.leftAnchor.constraint(equalTo: movieYearLabel.rightAnchor, constant: 3),
+            genresLabel.leftAnchor.constraint(equalTo: movieYearLabel.rightAnchor, constant: .genresLabelLeftAnchor),
             genresLabel.centerYAnchor.constraint(equalTo: yearAndGenreView.centerYAnchor),
             genresLabel.rightAnchor.constraint(equalTo: yearAndGenreView.rightAnchor),
 
             countryAndLengthView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            countryAndLengthView.topAnchor.constraint(equalTo: yearAndGenreView.bottomAnchor, constant: 22),
+            countryAndLengthView.topAnchor.constraint(equalTo: yearAndGenreView.bottomAnchor, constant: .countryAndLengthViewTopAnchor),
 
             countriesLabel.leftAnchor.constraint(equalTo: countryAndLengthView.leftAnchor),
             countriesLabel.centerYAnchor.constraint(equalTo: countryAndLengthView.centerYAnchor),
 
-            movieLengthLabel.leftAnchor.constraint(equalTo: countriesLabel.rightAnchor, constant: 8),
+            movieLengthLabel.leftAnchor.constraint(equalTo: countriesLabel.rightAnchor, constant: .detailMovieLengthLabelLeftAnchor),
             movieLengthLabel.centerYAnchor.constraint(equalTo: countryAndLengthView.centerYAnchor),
             movieLengthLabel.rightAnchor.constraint(equalTo: countryAndLengthView.rightAnchor),
 
-            backButton.topAnchor.constraint(equalTo: countryAndLengthView.bottomAnchor, constant: 25),
+            backButton.topAnchor.constraint(equalTo: countryAndLengthView.bottomAnchor, constant: .backButtonTopAnchor),
             backButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            backButton.heightAnchor.constraint(equalToConstant: 48),
-            backButton.widthAnchor.constraint(equalToConstant: 200),
+            backButton.heightAnchor.constraint(equalToConstant: .backButtonHeightAnchor),
+            backButton.widthAnchor.constraint(equalToConstant: .backButtonWidthAnchor),
 
-            grabView.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 5),
+            grabView.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: .grabViewTopAnchor),
             grabView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            grabView.heightAnchor.constraint(equalToConstant: 5),
+            grabView.heightAnchor.constraint(equalToConstant: .grabViewHeightAnchor),
             grabView.widthAnchor.constraint(equalToConstant: 35)
         ])
     }

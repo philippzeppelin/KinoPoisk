@@ -29,6 +29,7 @@ final class MainTableViewController: UIViewController {
 
         embedView()
         setupLayout()
+        setupNavigationController()
 
         tableView.dataSource = self
         tableView.delegate = self
