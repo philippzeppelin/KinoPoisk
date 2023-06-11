@@ -32,7 +32,7 @@ final class DetailViewController: UIViewController {
 
     private let movieNameRuLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial Bold", size: 25)
+        label.font = .arialBold25()
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .white
@@ -42,7 +42,7 @@ final class DetailViewController: UIViewController {
 
     private let ratingLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial", size: 13)
+        label.font = .arial13()
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -50,7 +50,7 @@ final class DetailViewController: UIViewController {
 
     private let ratingVoteCountLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial", size: 13)
+        label.font = .arial13()
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -58,7 +58,7 @@ final class DetailViewController: UIViewController {
 
     private let movieYearLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial", size: 13)
+        label.font = .arial13()
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -66,7 +66,7 @@ final class DetailViewController: UIViewController {
 
     private let genresLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial", size: 13)
+        label.font = .arial13()
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -74,7 +74,7 @@ final class DetailViewController: UIViewController {
 
     private let movieLengthLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial", size: 13)
+        label.font = .arial13()
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -82,7 +82,7 @@ final class DetailViewController: UIViewController {
 
     private let countriesLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial", size: 13)
+        label.font = .arial13()
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

@@ -25,7 +25,7 @@ final class TableViewCell: UITableViewCell {
 
     private let movieNameRuLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial Bold", size: 15)
+        label.font = .arialBold15()
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -33,7 +33,7 @@ final class TableViewCell: UITableViewCell {
 
     private let movieNameEnLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial", size: 13)
+        label.font = .arial13()
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -41,7 +41,7 @@ final class TableViewCell: UITableViewCell {
 
     private let genresLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial", size: 13)
+        label.font = .arial13()
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -49,7 +49,7 @@ final class TableViewCell: UITableViewCell {
 
     private let ratingLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial", size: 13)
+        label.font = .arial13()
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -57,7 +57,7 @@ final class TableViewCell: UITableViewCell {
 
     private let movieLengthLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial", size: 13)
+        label.font = .arial13()
         label.textColor = .white
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +66,7 @@ final class TableViewCell: UITableViewCell {
 
     private let countriesLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial", size: 13)
+        label.font = .arial13()
         label.textColor = .white
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -75,7 +75,7 @@ final class TableViewCell: UITableViewCell {
 
     private let ratingVoteCountLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Arial", size: 13)
+        label.font = .arial13()
         label.textColor = .gray
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false

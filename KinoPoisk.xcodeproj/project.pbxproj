@@ -11,6 +11,7 @@
 		E70920F92A12AE3900AFE32D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70920F82A12AE3900AFE32D /* DetailViewController.swift */; };
 		E70920FB2A12B2EE00AFE32D /* DetailTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70920FA2A12B2EE00AFE32D /* DetailTableViewPresenter.swift */; };
 		E764E8DC2A35D2880027798C /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E764E8DB2A35D2880027798C /* CGFloatExtension.swift */; };
+		E764E8DE2A35F1C30027798C /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E764E8DD2A35F1C30027798C /* UIFontExtension.swift */; };
 		E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */; };
 		E7B5768C29E47EBD00F01FA8 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768B29E47EBD00F01FA8 /* MainTableViewController.swift */; };
 		E7B5769129E47EBE00F01FA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7B5769029E47EBE00F01FA8 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		E70920F82A12AE3900AFE32D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E70920FA2A12B2EE00AFE32D /* DetailTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewPresenter.swift; sourceTree = "<group>"; };
 		E764E8DB2A35D2880027798C /* CGFloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtension.swift; sourceTree = "<group>"; };
+		E764E8DD2A35F1C30027798C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		E7B5768429E47EBD00F01FA8 /* KinoPoisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinoPoisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7B5768B29E47EBD00F01FA8 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				E764E8DB2A35D2880027798C /* CGFloatExtension.swift */,
+				E764E8DD2A35F1C30027798C /* UIFontExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7B576F429FFA90000F01FA8 /* NetworkService.swift in Sources */,
+				E764E8DE2A35F1C30027798C /* UIFontExtension.swift in Sources */,
 				E7B5768C29E47EBD00F01FA8 /* MainTableViewController.swift in Sources */,
 				E70920F92A12AE3900AFE32D /* DetailViewController.swift in Sources */,
 				E7B576EC29FE6EEE00F01FA8 /* TableViewCell.swift in Sources */,

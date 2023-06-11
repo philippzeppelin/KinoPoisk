@@ -36,8 +36,10 @@ final class MainTableViewController: UIViewController {
 
         presenter?.getMovies()
     }
+}
 
     // MARK: - Setup UI
+extension MainTableViewController {
     private func embedView() {
         view.addSubview(tableView)
     }
