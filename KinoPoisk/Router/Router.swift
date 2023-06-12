@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RouterMain {
-    var builder: ModuleBuilderProtocol? { get set }
+    var mainModuleBuilder: MainModuleBuilder? { get set }
     var rootController: UINavigationController? { get set }
 }
 
@@ -19,23 +19,28 @@ protocol RouterProtocol: RouterMain {
 }
 
 final class Router: RouterProtocol {
-    var builder: ModuleBuilderProtocol?
+    var mainModuleBuilder: MainModuleBuilder?
+    var detailModuleBuilder: DetailModuleBuilder?
     var rootController: UINavigationController?
 
-    init(builder: ModuleBuilderProtocol,
+    init(mainModuleBuilder: MainModuleBuilder,
+         detailModuleBuilder: DetailModuleBuilder,
          rootController: UINavigationController) {
-        self.builder = builder
+        self.mainModuleBuilder = mainModuleBuilder
+        self.detailModuleBuilder = detailModuleBuilder
         self.rootController = rootController
     }
 
     func initialViewController() {
-        let mainViewController = builder?.createMainTableViewModule(router: self)
-        rootController?.pushViewController(mainViewController!, animated: true)
+        if let rootController = rootController {
+            guard let mainViewController = mainModuleBuilder?.createMainTableViewModule(router: self) else { return }
+            rootController.pushViewController(mainViewController, animated: true)
+        }
     }
 
     func showDetail(film: Film) {
         if let rootController = rootController {
-            guard let detailTableView = builder?.createDetailTableViewModule(router: self, film: film) else { return }
+            guard let detailTableView = detailModuleBuilder?.createDetailTableViewModule(router: self, film: film) else { return }
             rootController.pushViewController(detailTableView, animated: true)
         }
     }
