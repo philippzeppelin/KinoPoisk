@@ -54,7 +54,7 @@ extension MainTableViewController {
     }
 
     private func setupNavigationController() {
-        navigationItem.title = "Топ 250 фильмов"
+        navigationItem.title = Localization.navigationBarTitle.localized // localization
         navigationController?.navigationBar.backgroundColor = .black
         navigationController?.navigationBar.barTintColor = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]

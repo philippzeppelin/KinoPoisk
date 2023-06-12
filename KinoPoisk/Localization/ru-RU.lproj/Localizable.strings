@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  KinoPoisk
+
+  Created by Philipp Zeppelin on 12.06.2023.
+  
+*/
+
+"Localization_navigationBarTitle" = "Топ 250 фильмов";
+"Localization_backButtonTitle" = "Назад";

@@ -10,6 +10,8 @@
 		04FEC1CCC59EBBBDBF61D18C /* Pods_KinoPoisk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DA003CF6A96270933BB6FC /* Pods_KinoPoisk.framework */; };
 		E70920F92A12AE3900AFE32D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70920F82A12AE3900AFE32D /* DetailViewController.swift */; };
 		E70920FB2A12B2EE00AFE32D /* DetailTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70920FA2A12B2EE00AFE32D /* DetailTableViewPresenter.swift */; };
+		E76409AD2A37121D0054E28B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E76409AF2A37121D0054E28B /* Localizable.strings */; };
+		E76409B22A3714690054E28B /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76409B12A3714690054E28B /* Localization.swift */; };
 		E764E8DC2A35D2880027798C /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E764E8DB2A35D2880027798C /* CGFloatExtension.swift */; };
 		E764E8DE2A35F1C30027798C /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E764E8DD2A35F1C30027798C /* UIFontExtension.swift */; };
 		E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */; };
@@ -33,6 +35,9 @@
 		D1DA003CF6A96270933BB6FC /* Pods_KinoPoisk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KinoPoisk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E70920F82A12AE3900AFE32D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E70920FA2A12B2EE00AFE32D /* DetailTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewPresenter.swift; sourceTree = "<group>"; };
+		E76409AE2A37121D0054E28B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E76409B02A3712550054E28B /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E76409B12A3714690054E28B /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		E764E8DB2A35D2880027798C /* CGFloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtension.swift; sourceTree = "<group>"; };
 		E764E8DD2A35F1C30027798C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		E7B5768429E47EBD00F01FA8 /* KinoPoisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinoPoisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +87,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E76409AA2A3711DE0054E28B /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				E76409B12A3714690054E28B /* Localization.swift */,
+				E76409AF2A37121D0054E28B /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		E764E8DA2A35D26A0027798C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +134,7 @@
 				E7C060B02A350807008D5C57 /* Core */,
 				E7B576A529EDE38C00F01FA8 /* Modules */,
 				E764E8DA2A35D26A0027798C /* Extensions */,
+				E76409AA2A3711DE0054E28B /* Localization */,
 			);
 			path = KinoPoisk;
 			sourceTree = "<group>";
@@ -283,6 +298,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"ru-RU",
 			);
 			mainGroup = E7B5767B29E47EBD00F01FA8;
 			productRefGroup = E7B5768529E47EBD00F01FA8 /* Products */;
@@ -300,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7B5769429E47EBE00F01FA8 /* LaunchScreen.storyboard in Resources */,
+				E76409AD2A37121D0054E28B /* Localizable.strings in Resources */,
 				E7B5769129E47EBE00F01FA8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +395,7 @@
 				E70920F92A12AE3900AFE32D /* DetailViewController.swift in Sources */,
 				E7B576EC29FE6EEE00F01FA8 /* TableViewCell.swift in Sources */,
 				E70920FB2A12B2EE00AFE32D /* DetailTableViewPresenter.swift in Sources */,
+				E76409B22A3714690054E28B /* Localization.swift in Sources */,
 				E7C060B72A350B7F008D5C57 /* Genres.swift in Sources */,
 				E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */,
 				E7C060B32A350B5E008D5C57 /* Film.swift in Sources */,
@@ -393,6 +411,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		E76409AF2A37121D0054E28B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E76409AE2A37121D0054E28B /* en */,
+				E76409B02A3712550054E28B /* ru-RU */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E7B5769229E47EBE00F01FA8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -408,6 +435,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -468,6 +496,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
