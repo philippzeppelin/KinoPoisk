@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Movies: Codable {
+struct Movies: Decodable {
     var pagesCount: Int
     var films: [Film]
 }
