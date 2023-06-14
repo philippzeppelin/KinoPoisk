@@ -7,36 +7,48 @@
 
 import Foundation
 
-// собирать url для мувис
-struct MoviesRequest: DataRequestProtocol {
-    var body: String = "https://kinopoiskapiunofficial.tech/"
-    var path: String = "api/v2.2/films/top?page="
-    var method: String = HTTPMethod.get.rawValue
-    var header: [String: String] = ["X-API-KEY": "ca070bb1-cb28-4f8a-912c-5bab25ae23e7"]
-//    var pageCount: Int надо придумать как впендюрить page
-}
-
 // в нетворк сервис
 protocol NetworkServiceProtocol {
 //    func getMovies(page: Int, completion: @escaping (Result<Movies, Error>) -> Void)
 
-    func request<T: Decodable>(request: DataRequestProtocol, completion: @escaping (Result<T, ErrorResponse>) -> Void)
+    func request<T: DataRequestProtocol>(dataRequest: T, completion: @escaping (Result<T.Response, ErrorResponse>) -> Void)
 }
 
-extension NetworkServiceProtocol {
-    func getMovies(completion: @escaping (Result<Movies, ErrorResponse>) -> Void) {
-        request(request: MoviesRequest(), completion: completion)
-    }
-}
+//extension NetworkServiceProtocol {
+//    func getMovies(completion: @escaping (Result<Movies, ErrorResponse>) -> Void) {
+//        request(dataRequest: MoviesRequest(), completion: completion)
+//    }
+//}
 
 final class NetworkService: NetworkServiceProtocol {
-    func request<T>(request: DataRequestProtocol, completion: @escaping (Result<T, ErrorResponse>) -> Void) {
+    func request<T: DataRequestProtocol>(dataRequest: T, completion: @escaping (Result<T.Response, ErrorResponse>) -> Void) {
+        guard let url = URL(string: dataRequest.url) else { return }
+         var request = URLRequest(url: url)
 
+        request.allHTTPHeaderFields = dataRequest.header
+        request.httpMethod = dataRequest.method.rawValue
 
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(.apiError))
+                return
+            }
 
+            guard let response = response as? HTTPURLResponse,
+               response.statusCode == 200 else {
+                completion(.failure(.invalidResponse))
+                return
+            }
 
+            guard let data = data else {
+                completion(.failure(.noData))
+                return
+            }
+        }
 
-
+        do {
+            try completion(.success(request.decode(data)))
+        }
     }
 }
 
@@ -79,4 +91,4 @@ final class NetworkService: NetworkServiceProtocol {
 //        }
 //        task.resume()
 //    }
-//}
+// }

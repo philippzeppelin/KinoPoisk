@@ -16,8 +16,20 @@ enum HTTPMethod: String {
 }
 
 protocol DataRequestProtocol {
+    associatedtype Response
     var body: String { get }
     var path: String { get }
-    var method: String { get }
+    var method: HTTPMethod { get }
     var header: [String: String] { get }
+//    var page: Int { get }
+    var url: String { get }
+
+    func decode(_ data: Data) throws -> Response
+}
+
+extension DataRequestProtocol where Response: Decodable {
+    func decode(_ data: Data) throws -> Response {
+        let decoder = JSONDecoder()
+        return try decoder.decode(Response.self, from: data)
+    }
 }
