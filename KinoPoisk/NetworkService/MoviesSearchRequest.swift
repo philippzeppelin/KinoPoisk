@@ -14,9 +14,9 @@ struct MoviesRequest: DataRequestProtocol {
     var path: String = "api/v2.2/films/top?page="
     var method: HTTPMethod = .get
     var header: [String: String] = ["X-API-KEY": "ca070bb1-cb28-4f8a-912c-5bab25ae23e7"]
-//    var page: Int
+    var page: Int
 
     var url: String {
-        return body + path
+        return body + path + "\(page)"
     }
 }
