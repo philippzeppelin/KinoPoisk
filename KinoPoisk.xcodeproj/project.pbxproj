@@ -12,6 +12,9 @@
 		E70920FB2A12B2EE00AFE32D /* DetailTableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70920FA2A12B2EE00AFE32D /* DetailTableViewPresenter.swift */; };
 		E760E5D42A378E2800B0FAC8 /* MainModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E760E5D32A378E2800B0FAC8 /* MainModuleBuilder.swift */; };
 		E760E5D62A378E4400B0FAC8 /* DetailModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E760E5D52A378E4400B0FAC8 /* DetailModuleBuilder.swift */; };
+		E760E5E82A38F41500B0FAC8 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E760E5E72A38F41500B0FAC8 /* ErrorResponse.swift */; };
+		E760E5EA2A39004200B0FAC8 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E760E5E92A39004200B0FAC8 /* DataRequest.swift */; };
+		E760E5EC2A3A4CA100B0FAC8 /* MoviesSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E760E5EB2A3A4CA100B0FAC8 /* MoviesSearchRequest.swift */; };
 		E76409AD2A37121D0054E28B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E76409AF2A37121D0054E28B /* Localizable.strings */; };
 		E76409B22A3714690054E28B /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76409B12A3714690054E28B /* Localization.swift */; };
 		E764E8DC2A35D2880027798C /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E764E8DB2A35D2880027798C /* CGFloatExtension.swift */; };
@@ -38,6 +41,9 @@
 		E70920FA2A12B2EE00AFE32D /* DetailTableViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewPresenter.swift; sourceTree = "<group>"; };
 		E760E5D32A378E2800B0FAC8 /* MainModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleBuilder.swift; sourceTree = "<group>"; };
 		E760E5D52A378E4400B0FAC8 /* DetailModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleBuilder.swift; sourceTree = "<group>"; };
+		E760E5E72A38F41500B0FAC8 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		E760E5E92A39004200B0FAC8 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
+		E760E5EB2A3A4CA100B0FAC8 /* MoviesSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSearchRequest.swift; sourceTree = "<group>"; };
 		E76409AE2A37121D0054E28B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E76409B02A3712550054E28B /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E76409B12A3714690054E28B /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
@@ -232,7 +238,10 @@
 		E7B576F029FFA6C500F01FA8 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				E760E5E92A39004200B0FAC8 /* DataRequest.swift */,
 				E7B576F329FFA90000F01FA8 /* NetworkService.swift */,
+				E760E5E72A38F41500B0FAC8 /* ErrorResponse.swift */,
+				E760E5EB2A3A4CA100B0FAC8 /* MoviesSearchRequest.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -414,7 +423,10 @@
 				E7B576E429FE64A600F01FA8 /* Movies.swift in Sources */,
 				E760E5D42A378E2800B0FAC8 /* MainModuleBuilder.swift in Sources */,
 				E7B576E629FE6D1A00F01FA8 /* MainTableViewPresenter.swift in Sources */,
+				E760E5EC2A3A4CA100B0FAC8 /* MoviesSearchRequest.swift in Sources */,
 				E764E8DC2A35D2880027798C /* CGFloatExtension.swift in Sources */,
+				E760E5E82A38F41500B0FAC8 /* ErrorResponse.swift in Sources */,
+				E760E5EA2A39004200B0FAC8 /* DataRequest.swift in Sources */,
 				E7C060B52A350B6F008D5C57 /* Countries.swift in Sources */,
 				E7FD0A8D2A0905EB00D576B1 /* Router.swift in Sources */,
 			);

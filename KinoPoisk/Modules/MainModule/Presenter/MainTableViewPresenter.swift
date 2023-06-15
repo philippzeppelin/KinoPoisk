@@ -36,7 +36,7 @@ final class MainTableViewPresenter: MainTableViewPresenterProtocol {
     }
 
     func getMovies() {
-        networkService?.getMovies(page: pageCounter) { [weak self] result in
+        networkService?.getMovies(page: pageCounter, completion: { [weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else { return }
                 switch result {
@@ -48,7 +48,20 @@ final class MainTableViewPresenter: MainTableViewPresenterProtocol {
                 }
                 self.isFetching = false
             }
-        }
+        })
+//        networkService?.getMovies(page: pageCounter) { [weak self] result in
+//            DispatchQueue.main.async {
+//                guard let self = self else { return }
+//                switch result {
+//                case .success(let model):
+//                    self.films += model.films
+//                    self.view?.success()
+//                case .failure(let error):
+//                    self.view?.failure(error: error)
+//                }
+//                self.isFetching = false
+//            }
+//        }
     }
 
     func beginFetch() {

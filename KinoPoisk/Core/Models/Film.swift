@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Film: Codable {
+struct Film: Decodable {
     var filmId: Int
     var nameRu: String
     var nameEn: String?
