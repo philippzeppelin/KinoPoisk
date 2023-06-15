@@ -21,7 +21,6 @@ protocol DataRequestProtocol {
     var path: String { get }
     var method: HTTPMethod { get }
     var header: [String: String] { get }
-//    var page: Int { get }
     var url: String { get }
 
     func decode(_ data: Data) throws -> Response
