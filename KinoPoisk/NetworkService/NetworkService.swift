@@ -21,7 +21,7 @@ final class NetworkService: NetworkServiceProtocol {
     func request<T: DataRequestProtocol>(dataRequest: T, completion: @escaping (Result<T.Response, ErrorResponse>) -> Void) {
         guard let url = URL(string: dataRequest.url) else { return }
         var request = URLRequest(url: url)
-        print(url)
+
         request.allHTTPHeaderFields = dataRequest.header
         request.httpMethod = dataRequest.method.rawValue
 
@@ -36,7 +36,6 @@ final class NetworkService: NetworkServiceProtocol {
                 completion(.failure(.invalidResponse))
                 return
             }
-            print(url)
 
             guard let data = data else {
                 completion(.failure(.noData))
