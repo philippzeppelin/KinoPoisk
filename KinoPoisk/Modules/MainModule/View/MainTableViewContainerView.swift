@@ -9,7 +9,7 @@ import UIKit
 
 class MainTableViewContainerView: UIView {
     private var event: MainTableEvent
-    private var presenter: MainTableViewPresenterProtocol?
+    var presenter: MainTableViewPresenterProtocol?
 
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -31,6 +31,7 @@ class MainTableViewContainerView: UIView {
         tableView.delegate = self
 
         backgroundColor = .red
+        presenter?.getMovies()
     }
 
     required init?(coder: NSCoder) {

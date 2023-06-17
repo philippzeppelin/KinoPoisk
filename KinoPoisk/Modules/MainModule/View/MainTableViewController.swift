@@ -22,7 +22,9 @@ final class MainTableViewController: UIViewController {
     // MARK: - UI
     override func loadView() {
         super.loadView()
+        containerView.presenter = presenter
         view = containerView
+
     }
 
     override func viewDidLoad() {
