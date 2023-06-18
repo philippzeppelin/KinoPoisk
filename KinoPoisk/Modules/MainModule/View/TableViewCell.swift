@@ -100,12 +100,12 @@ final class TableViewCell: UITableViewCell {
     }
 
     func updateUI(movies: Film) {
-        movieNameRuLabel.text = movies.nameRu
-        movieNameEnLabel.text = "\(movies.nameEn ?? "") (\(movies.year))"
-        ratingLabel.text = movies.rating
-        movieLengthLabel.text = movies.filmLength
-        ratingVoteCountLabel.text = "\(movies.ratingVoteCount)"
-        posterImageView.image = nil
+//        movieNameRuLabel.text = movies.nameRu
+//        movieNameEnLabel.text = "\(movies.nameEn ?? "") (\(movies.year))"
+//        ratingLabel.text = movies.rating
+//        movieLengthLabel.text = movies.filmLength
+//        ratingVoteCountLabel.text = "\(movies.ratingVoteCount)"
+//        posterImageView.image = nil
 
         var genres: [String] = []
         for genre in movies.genres {
@@ -125,6 +125,30 @@ final class TableViewCell: UITableViewCell {
         case 7...10: ratingLabel.textColor = .green
         default: ratingLabel.textColor = .gray
         }
+    }
+}
+
+extension TableViewCell {
+    struct Configuration {
+        let movieNameRuLabel: String
+        let movieNameEnLabel: String
+        let ratingLabel: String
+        let movieLengthLabel: String
+        let ratingVoteCountLabel: String
+        let posterImageView: UIImage?
+        let genresLabel: String
+        let countriesLabel: String
+    }
+
+    func configure(_ configuration: Configuration) {
+        movieNameRuLabel.text = configuration.movieNameRuLabel
+        movieNameEnLabel.text = configuration.movieNameEnLabel
+        ratingLabel.text = configuration.ratingLabel
+        movieLengthLabel.text = configuration.movieLengthLabel
+        ratingVoteCountLabel.text = configuration.ratingVoteCountLabel
+        posterImageView.image = configuration.posterImageView
+//        genresLabel.text = configuration.genresLabel
+//        countriesLabel.text = configuration.countriesLabel
     }
 }
 

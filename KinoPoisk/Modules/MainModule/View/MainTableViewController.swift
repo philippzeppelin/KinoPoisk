@@ -89,7 +89,43 @@ extension MainTableViewController: UITableViewDataSource {
         cell.selectionStyle = .none
 
         if let movie = presenter?.films[indexPath.row] {
-            cell.updateUI(movies: movie)
+//            cell.updateUI(movies: movie)
+
+            cell.configure(.init(
+//                movieNameRuLabel: movie.nameRu,
+//                movieNameEnLabel: movie.nameEn!,
+//                ratingLabel: movie.rating,
+//                movieLengthLabel: movie.filmLength,
+//                ratingVoteCountLabel: movie.ratingVoteCount,
+//                posterImageView: movie.posterUrl,
+//                genresLabel: movie.genres,
+//                countriesLabel: movie.countries
+                movieNameRuLabel: movie.nameRu,
+                movieNameEnLabel: "\(movie.nameEn ?? "") (\(movie.year))",
+                ratingLabel: movie.rating,
+                movieLengthLabel: movie.filmLength,
+                ratingVoteCountLabel: "\(movie.ratingVoteCount)",
+                posterImageView: nil 
+
+//                var genres: [String] = []
+//                for genre in movie.genres {
+//                    genres.append(genre.genre)
+//                }
+//                genresLabel.text = genres.joined(separator: ", ")
+//
+//                var countries: [String] = []
+//                for country in movie.countries {
+//                    countries.append(country.country)
+//                }
+//                countriesLabel.text = countries.joined(separator: ", ")
+//
+//                guard let ratingColor = Double(movie.rating) else { return }
+//                switch ratingColor {
+//                case 0..<5:  ratingLabel.textColor = .red
+//                case 7...10: ratingLabel.textColor = .green
+//                default: ratingLabel.textColor = .gray
+
+                                ))
         } else {
             print("Ячейки не заполнились")
         }
