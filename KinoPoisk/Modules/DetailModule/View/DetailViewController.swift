@@ -108,7 +108,7 @@ final class DetailViewController: UIViewController {
 
     private lazy var backButton: UIButton = {
         let button = UIButton()
-        button.setTitle(Localization.backButtonTitle.localized, for: .normal) 
+        button.setTitle(Localization.backButtonTitle.localized, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .orange
         button.layer.cornerRadius = 23

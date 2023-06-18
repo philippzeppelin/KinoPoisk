@@ -10,12 +10,12 @@ import Kingfisher
 
 final class MainTableViewController: UIViewController {
     var presenter: MainTableViewPresenterProtocol?
-    private var filmList: [Film] = []
-    private var movies: [Movies] = []
 
     private let containerView = MainTableViewContainerView { event in
+
         switch event {
-        case .cellTapped: print("tap")
+        case .cellTapped: print("tap") // как быть
+
         }
     }
 
@@ -23,8 +23,8 @@ final class MainTableViewController: UIViewController {
     override func loadView() {
         super.loadView()
         containerView.presenter = presenter
-        view = containerView
 
+        view = containerView
     }
 
     override func viewDidLoad() {
@@ -38,7 +38,6 @@ final class MainTableViewController: UIViewController {
 
 extension MainTableViewController: MainTableViewProtocol {
     func success() {
-//        tableView.reloadData()
         containerView.tableView.reloadData()
     }
 
@@ -47,7 +46,7 @@ extension MainTableViewController: MainTableViewProtocol {
     }
 }
 
-    // MARK: - Setup UI
+    // MARK: - UI
 extension MainTableViewController {
     private func setupNavigationController() {
         navigationItem.title = Localization.navigationBarTitle.localized

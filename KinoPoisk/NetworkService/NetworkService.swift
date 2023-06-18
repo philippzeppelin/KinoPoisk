@@ -25,7 +25,7 @@ final class NetworkService: NetworkServiceProtocol {
         request.allHTTPHeaderFields = dataRequest.header
         request.httpMethod = dataRequest.method.rawValue
 
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in // swiftlint:disable unused_optional_binding
             if let _ = error {
                 completion(.failure(.apiError))
                 return

@@ -54,8 +54,9 @@ class MainTableViewContainerView: UIView {
 
 extension MainTableViewContainerView {
     typealias MainTableEvent = (Event) -> Void
+
     enum Event {
-        case cellTapped // надо отправить в презентер
+        case cellTapped
     }
 }
 
@@ -95,7 +96,7 @@ extension MainTableViewContainerView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let film = presenter?.films[indexPath.row] else { return }
-//        presenter?.goToDetailMovie(film: film)
+        presenter?.goToDetailMovie(film: film)
         event(.cellTapped)
     }
 
