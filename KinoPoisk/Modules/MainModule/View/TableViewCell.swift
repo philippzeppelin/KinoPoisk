@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TableViewCell: UITableViewCell {
+final class TableViewCell: UITableViewCell { // MovieCell
     static let cellIdentifier = "cell"
 
     private let cellView: UIView = {
@@ -144,6 +144,7 @@ extension TableViewCell {
     }
 
     private func setupLayout() {
+        // В стеквью
         NSLayoutConstraint.activate([
             cellView.topAnchor.constraint(equalTo: topAnchor, constant: .cellViewTopLeftRightAnchor),
             cellView.leftAnchor.constraint(equalTo: leftAnchor, constant: .cellViewTopLeftRightAnchor),

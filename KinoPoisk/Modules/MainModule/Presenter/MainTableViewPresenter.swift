@@ -18,7 +18,7 @@ protocol MainTableViewPresenterProtocol: AnyObject {
     init(view: MainTableViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
     func getMovies()
     func beginFetch()
-    func goToDetailMovie(film: Film)
+    func showDetailMovie(film index: Int)
 }
 
 final class MainTableViewPresenter: MainTableViewPresenterProtocol {
@@ -57,7 +57,9 @@ final class MainTableViewPresenter: MainTableViewPresenterProtocol {
         getMovies()
     }
 
-    func goToDetailMovie(film: Film) {
+    func showDetailMovie(film index: Int) {
+        let film = films[index]
         router?.showDetail(film: film)
+
     }
 }

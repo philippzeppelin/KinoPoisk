@@ -56,7 +56,8 @@ extension MainTableViewContainerView {
     typealias MainTableEvent = (Event) -> Void
 
     enum Event {
-        case cellTapped
+        case showMovie(index: Int)
+//        case showMovie
     }
 }
 
@@ -96,8 +97,8 @@ extension MainTableViewContainerView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let film = presenter?.films[indexPath.row] else { return }
-        presenter?.goToDetailMovie(film: film)
-        event(.cellTapped)
+//        presenter?.showDetailMovie(film: film)
+        event(.showMovie(index: indexPath.row))
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

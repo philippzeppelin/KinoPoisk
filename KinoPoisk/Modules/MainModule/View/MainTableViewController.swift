@@ -12,14 +12,13 @@ final class MainTableViewController: UIViewController {
     var presenter: MainTableViewPresenterProtocol?
 
     private let containerView = MainTableViewContainerView { event in
-
         switch event {
-        case .cellTapped: print("tap") // как быть
-
+        case let .showMovie(movieIndex):
+            presenter?.showDetailMovie(film: movieIndex)
         }
     }
 
-    // MARK: - UI
+    // MARK: - UI 
     override func loadView() {
         super.loadView()
         containerView.presenter = presenter
