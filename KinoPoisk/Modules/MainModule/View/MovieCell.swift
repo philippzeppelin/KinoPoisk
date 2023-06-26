@@ -1,5 +1,5 @@
 //
-//  TableViewCell.swift
+//  MovieCell.swift
 //  KinoPoisk
 //
 //  Created by Philipp Zeppelin on 30.04.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TableViewCell: UITableViewCell {
+final class MovieCell: UITableViewCell {
     static let cellIdentifier = "cell"
 
     private let cellView: UIView = {
@@ -128,32 +128,60 @@ final class TableViewCell: UITableViewCell {
     }
 }
 
-extension TableViewCell {
+enum Content1 {
+    case image(UIImage)
+    case imageURL(URL)
+}
+
+extension MovieCell {
     struct Configuration {
-        let movieNameRuLabel: String
-        let movieNameEnLabel: String
-        let ratingLabel: String
-        let movieLengthLabel: String
-        let ratingVoteCountLabel: String
-        let posterImageView: UIImage?
-        let genresLabel: String
-        let countriesLabel: String
+        let movieNameRu: String
+        let movieNameEn: String
+        let rating: String
+        let movieLength: String
+        let ratingVoteCount: String
+        let posterImageView: Content1?
+        let countries: String
+        let genres: String
     }
 
     func configure(_ configuration: Configuration) {
-        movieNameRuLabel.text = configuration.movieNameRuLabel
-        movieNameEnLabel.text = configuration.movieNameEnLabel
-        ratingLabel.text = configuration.ratingLabel
-        movieLengthLabel.text = configuration.movieLengthLabel
-        ratingVoteCountLabel.text = configuration.ratingVoteCountLabel
-        posterImageView.image = configuration.posterImageView
+        movieNameRuLabel.text = configuration.movieNameRu
+        movieNameEnLabel.text = configuration.movieNameEn
+        ratingLabel.text = configuration.rating
+        movieLengthLabel.text = configuration.movieLength
+        ratingVoteCountLabel.text = configuration.ratingVoteCount
+//        posterImageView.image =
+        genresLabel.text = configuration.genres
+        countriesLabel.text = configuration.countries
+
+        if let posterImageContent = configuration.posterImageView {
+            switch posterImageContent {
+            case .image(let image):
+                posterImageView.image = image
+            case .imageURL(let url):
+                posterImageView.kf.setImage(with: url)
+            }
+        } else {
+            posterImageView.image = nil
+        }
+
+
+//        movieNameRuLabel.text = configuration.movieNameRuLabel
+//        movieNameEnLabel.text = configuration.movieNameEnLabel
+//        ratingLabel.text = configuration.ratingLabel
+//        movieLengthLabel.text = configuration.movieLengthLabel
+//        ratingVoteCountLabel.text = configuration.ratingVoteCountLabel
+//        posterImageView.image = configuration.posterImageView
 //        genresLabel.text = configuration.genresLabel
 //        countriesLabel.text = configuration.countriesLabel
+
+        /// TODO: Вынести сюда загрузку через кингфигер
     }
 }
 
 // MARK: - Setup UI
-extension TableViewCell {
+extension MovieCell {
     private func embedView() {
         addSubview(cellView)
         cellView.addSubview(posterImageView)

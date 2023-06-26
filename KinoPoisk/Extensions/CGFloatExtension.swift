@@ -8,7 +8,7 @@
 import Foundation
 
 extension CGFloat {
-    // MARK: - TableViewCell constraints
+    // MARK: - MovieCell constraints
     static var cellViewTopLeftRightAnchor: CGFloat { 8 }
 
     static var posterImageViewTopLeftBottomAnchor: CGFloat { 5 }

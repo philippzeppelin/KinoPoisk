@@ -18,7 +18,7 @@ final class MainTableViewController: UIViewController {
         let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.cellIdentifier)
+        tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.cellIdentifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -81,44 +81,30 @@ extension MainTableViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.cellIdentifier,
-                                                       for: indexPath) as? TableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.cellIdentifier,
+                                                       for: indexPath) as? MovieCell else { return UITableViewCell() }
         guard let film = presenter?.films[indexPath.row] else { return cell }
 
-        cell.backgroundColor = UIColor(red: 16/255, green: 14/255, blue: 15/255, alpha: 1.0)
+        cell.backgroundColor = UIColor(red: 16/255, green: 14/255, blue: 15/255, alpha: 1.0) /// TODO: сделать в этой ветке
         cell.selectionStyle = .none
 
         if let movie = presenter?.films[indexPath.row] {
 //            cell.updateUI(movies: movie)
 
             cell.configure(.init(
-//                movieNameRuLabel: movie.nameRu,
-//                movieNameEnLabel: movie.nameEn!,
-//                ratingLabel: movie.rating,
-//                movieLengthLabel: movie.filmLength,
-//                ratingVoteCountLabel: movie.ratingVoteCount,
-//                posterImageView: movie.posterUrl,
-//                genresLabel: movie.genres,
-//                countriesLabel: movie.countries
-                movieNameRuLabel: movie.nameRu,
-                movieNameEnLabel: "\(movie.nameEn ?? "") (\(movie.year))",
-                ratingLabel: movie.rating,
-                movieLengthLabel: movie.filmLength,
-                ratingVoteCountLabel: "\(movie.ratingVoteCount)",
-                posterImageView: nil 
 
-//                var genres: [String] = []
-//                for genre in movie.genres {
-//                    genres.append(genre.genre)
-//                }
-//                genresLabel.text = genres.joined(separator: ", ")
-//
-//                var countries: [String] = []
-//                for country in movie.countries {
-//                    countries.append(country.country)
-//                }
-//                countriesLabel.text = countries.joined(separator: ", ")
-//
+
+
+                movieNameRu: movie.rating,
+                movieNameEn: movie.nameRu,
+                rating: "\(movie.nameEn ?? "") (\(movie.year))",
+                movieLength: movie.filmLength,
+                ratingVoteCount: "\(movie.ratingVoteCount)",
+                posterImageView: .imageURL(URL(string: movie.posterUrl)!),
+                countries: movie.allCountries,
+                genres: movie.allGenres
+
+
 //                guard let ratingColor = Double(movie.rating) else { return }
 //                switch ratingColor {
 //                case 0..<5:  ratingLabel.textColor = .red
@@ -131,7 +117,7 @@ extension MainTableViewController: UITableViewDataSource {
         }
 
         if let url = URL(string: film.posterUrl) {
-            cell.posterImageView.kf.setImage(with: url)
+            cell.posterImageView.kf.setImage(with: url) /// TODO: Кингфишер в конфигурацию в MovieCell
         }
         return cell
     }

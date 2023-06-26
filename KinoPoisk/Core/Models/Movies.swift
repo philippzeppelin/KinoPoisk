@@ -9,5 +9,5 @@ import Foundation
 
 struct Movies: Decodable {
     var pagesCount: Int
-    var films: [Film]
+    var films: [FilmAPI]
 }
