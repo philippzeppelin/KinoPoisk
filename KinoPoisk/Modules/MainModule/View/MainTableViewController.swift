@@ -18,7 +18,7 @@ final class MainTableViewController: UIViewController {
         let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.cellIdentifier)
+        tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.cellIdentifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -81,22 +81,44 @@ extension MainTableViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.cellIdentifier,
-                                                       for: indexPath) as? TableViewCell else { return UITableViewCell() }
-        guard let film = presenter?.films[indexPath.row] else { return cell }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.cellIdentifier,
+                                                       for: indexPath) as? MovieCell else { return UITableViewCell() }
+//        guard let film = presenter?.films[indexPath.row] else { return cell }
 
-        cell.backgroundColor = UIColor(red: 16/255, green: 14/255, blue: 15/255, alpha: 1.0)
-        cell.selectionStyle = .none
+//        cell.backgroundColor = .red // UIColor(red: 16/255, green: 14/255, blue: 15/255, alpha: 1.0) // TODO: сделать в этой ветке
+//        cell.selectionStyle = .none
 
         if let movie = presenter?.films[indexPath.row] {
-            cell.updateUI(movies: movie)
+            let posterImageView: MovieCell.Content?
+
+            if let posterUrl = URL(string: movie.posterUrl) {
+                posterImageView = .imageURL(posterUrl)
+            } else {
+                posterImageView = nil
+            }
+
+            cell.configure(.init(
+                movieNameRu: movie.nameRu,
+                movieNameEn: "\(movie.nameEn ?? "") (\(movie.year))",
+                rating: movie.rating,
+                movieLength: movie.filmLength,
+                ratingVoteCount: "\(movie.ratingVoteCount)",
+                posterImageView: posterImageView,
+                countries: movie.allCountries,
+                genres: movie.allGenres
+                ))
+
+            // TODO: узнать куда можно впендюрить
+//            guard let ratingColor = Double(movie.rating) else { return }
+//            switch movie.rating {
+//            case 0..<5:  rating.textColor = UIColor(.red)
+//            case 7...10: cell.rating.textColor = .green
+//            default: cell.rating.textColor = .gray
+//            }
         } else {
             print("Ячейки не заполнились")
         }
 
-        if let url = URL(string: film.posterUrl) {
-            cell.posterImageView.kf.setImage(with: url)
-        }
         return cell
     }
 }

@@ -1,5 +1,5 @@
 //
-//  TableViewCell.swift
+//  MovieCell.swift
 //  KinoPoisk
 //
 //  Created by Philipp Zeppelin on 30.04.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TableViewCell: UITableViewCell {
+final class MovieCell: UITableViewCell {
     static let cellIdentifier = "cell"
 
     private let cellView: UIView = {
@@ -93,43 +93,67 @@ final class TableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         embedView()
         setupLayout()
+        cellConfigure()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
-    func updateUI(movies: Film) {
-        movieNameRuLabel.text = movies.nameRu
-        movieNameEnLabel.text = "\(movies.nameEn ?? "") (\(movies.year))"
-        ratingLabel.text = movies.rating
-        movieLengthLabel.text = movies.filmLength
-        ratingVoteCountLabel.text = "\(movies.ratingVoteCount)"
-        posterImageView.image = nil
+enum Content {
+    case image(UIImage)
+    case imageURL(URL)
+}
 
-        var genres: [String] = []
-        for genre in movies.genres {
-            genres.append(genre.genre)
-        }
-        genresLabel.text = genres.joined(separator: ", ")
+extension MovieCell {
+    enum Content {
+        case image(UIImage)
+        case imageURL(URL)
+    }
 
-        var countries: [String] = []
-        for country in movies.countries {
-            countries.append(country.country)
-        }
-        countriesLabel.text = countries.joined(separator: ", ")
+    struct Configuration {
+        let movieNameRu: String
+        let movieNameEn: String
+        let rating: String
+        let movieLength: String
+        let ratingVoteCount: String
+        let posterImageView: Content?
+        let countries: String
+        let genres: String
+    }
 
-        guard let ratingColor = Double(movies.rating) else { return }
-        switch ratingColor {
-        case 0..<5:  ratingLabel.textColor = .red
-        case 7...10: ratingLabel.textColor = .green
-        default: ratingLabel.textColor = .gray
+    func configure(_ configuration: Configuration) {
+        movieNameRuLabel.text = configuration.movieNameRu
+        movieNameEnLabel.text = configuration.movieNameEn
+        ratingLabel.text = configuration.rating
+        movieLengthLabel.text = configuration.movieLength
+        ratingVoteCountLabel.text = configuration.ratingVoteCount
+        genresLabel.text = configuration.genres
+        countriesLabel.text = configuration.countries
+
+        if let posterImageContent = configuration.posterImageView {
+            switch posterImageContent {
+            case .image(let image):
+                posterImageView.image = image
+            case .imageURL(let url):
+                posterImageView.kf.setImage(with: url)
+            }
+        } else {
+            posterImageView.image = nil
         }
     }
 }
 
+extension MovieCell {
+    private func cellConfigure() {
+        backgroundColor = UIColor(red: 16/255, green: 14/255, blue: 15/255, alpha: 1.0)
+        selectionStyle = .none
+    }
+}
+
 // MARK: - Setup UI
-extension TableViewCell {
+extension MovieCell {
     private func embedView() {
         addSubview(cellView)
         cellView.addSubview(posterImageView)

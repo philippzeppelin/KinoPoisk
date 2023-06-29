@@ -41,7 +41,7 @@ final class MainTableViewPresenter: MainTableViewPresenterProtocol {
                 guard let self = self else { return }
                 switch result {
                 case .success(let model):
-                    self.films += model.films
+                    self.films += model.films.map { Film($0) }
                     self.view?.success()
                 case .failure(let error):
                     self.view?.failure(error: error)
