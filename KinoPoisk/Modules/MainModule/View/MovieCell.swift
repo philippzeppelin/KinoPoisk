@@ -93,54 +93,32 @@ final class MovieCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         embedView()
         setupLayout()
+        cellConfigure()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    func updateUI(movies: Film) {
-//        movieNameRuLabel.text = movies.nameRu
-//        movieNameEnLabel.text = "\(movies.nameEn ?? "") (\(movies.year))"
-//        ratingLabel.text = movies.rating
-//        movieLengthLabel.text = movies.filmLength
-//        ratingVoteCountLabel.text = "\(movies.ratingVoteCount)"
-//        posterImageView.image = nil
-
-        var genres: [String] = []
-        for genre in movies.genres {
-            genres.append(genre.genre)
-        }
-        genresLabel.text = genres.joined(separator: ", ")
-
-        var countries: [String] = []
-        for country in movies.countries {
-            countries.append(country.country)
-        }
-        countriesLabel.text = countries.joined(separator: ", ")
-
-        guard let ratingColor = Double(movies.rating) else { return }
-        switch ratingColor {
-        case 0..<5:  ratingLabel.textColor = .red
-        case 7...10: ratingLabel.textColor = .green
-        default: ratingLabel.textColor = .gray
-        }
-    }
 }
 
-enum Content1 {
+enum Content {
     case image(UIImage)
     case imageURL(URL)
 }
 
 extension MovieCell {
+    enum Content {
+        case image(UIImage)
+        case imageURL(URL)
+    }
+
     struct Configuration {
         let movieNameRu: String
         let movieNameEn: String
         let rating: String
         let movieLength: String
         let ratingVoteCount: String
-        let posterImageView: Content1?
+        let posterImageView: Content?
         let countries: String
         let genres: String
     }
@@ -151,7 +129,6 @@ extension MovieCell {
         ratingLabel.text = configuration.rating
         movieLengthLabel.text = configuration.movieLength
         ratingVoteCountLabel.text = configuration.ratingVoteCount
-//        posterImageView.image =
         genresLabel.text = configuration.genres
         countriesLabel.text = configuration.countries
 
@@ -165,18 +142,13 @@ extension MovieCell {
         } else {
             posterImageView.image = nil
         }
+    }
+}
 
-
-//        movieNameRuLabel.text = configuration.movieNameRuLabel
-//        movieNameEnLabel.text = configuration.movieNameEnLabel
-//        ratingLabel.text = configuration.ratingLabel
-//        movieLengthLabel.text = configuration.movieLengthLabel
-//        ratingVoteCountLabel.text = configuration.ratingVoteCountLabel
-//        posterImageView.image = configuration.posterImageView
-//        genresLabel.text = configuration.genresLabel
-//        countriesLabel.text = configuration.countriesLabel
-
-        /// TODO: Вынести сюда загрузку через кингфигер
+extension MovieCell {
+    private func cellConfigure() {
+        backgroundColor = UIColor(red: 16/255, green: 14/255, blue: 15/255, alpha: 1.0)
+        selectionStyle = .none
     }
 }
 
