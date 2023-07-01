@@ -108,7 +108,7 @@ final class DetailViewController: UIViewController {
 
     private lazy var backButton: UIButton = {
         let button = UIButton()
-        button.setTitle(Localization.backButtonTitle.localized, for: .normal) // localization
+        button.setTitle(Localization.backButtonTitle, for: .normal) // localization
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .orange
         button.layer.cornerRadius = 23
@@ -267,5 +267,11 @@ extension DetailViewController: DetailViewProtocol {
         if let url = URL(string: film.posterUrl) {
             posterImageView.kf.setImage(with: url)
         }
+    }
+}
+
+extension DetailViewController {
+    enum Localization {
+        static let backButtonTitle: String = NSLocalizedString("Back_Button_Title", comment: "Back button title")
     }
 }

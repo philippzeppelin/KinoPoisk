@@ -16,7 +16,6 @@
 		E760E5EA2A39004200B0FAC8 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E760E5E92A39004200B0FAC8 /* DataRequest.swift */; };
 		E760E5EC2A3A4CA100B0FAC8 /* MoviesSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E760E5EB2A3A4CA100B0FAC8 /* MoviesSearchRequest.swift */; };
 		E76409AD2A37121D0054E28B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E76409AF2A37121D0054E28B /* Localizable.strings */; };
-		E76409B22A3714690054E28B /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76409B12A3714690054E28B /* Localization.swift */; };
 		E764E8DC2A35D2880027798C /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E764E8DB2A35D2880027798C /* CGFloatExtension.swift */; };
 		E764E8DE2A35F1C30027798C /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E764E8DD2A35F1C30027798C /* UIFontExtension.swift */; };
 		E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5768729E47EBD00F01FA8 /* AppDelegate.swift */; };
@@ -46,7 +45,6 @@
 		E760E5EB2A3A4CA100B0FAC8 /* MoviesSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSearchRequest.swift; sourceTree = "<group>"; };
 		E76409AE2A37121D0054E28B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E76409B02A3712550054E28B /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		E76409B12A3714690054E28B /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		E764E8DB2A35D2880027798C /* CGFloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtension.swift; sourceTree = "<group>"; };
 		E764E8DD2A35F1C30027798C /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		E7B5768429E47EBD00F01FA8 /* KinoPoisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinoPoisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,7 +112,6 @@
 		E76409AA2A3711DE0054E28B /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				E76409B12A3714690054E28B /* Localization.swift */,
 				E76409AF2A37121D0054E28B /* Localizable.strings */,
 			);
 			path = Localization;
@@ -282,9 +279,9 @@
 			buildPhases = (
 				0F88DD68D82EF2464CFBD11D /* [CP] Check Pods Manifest.lock */,
 				E7B5768029E47EBD00F01FA8 /* Sources */,
+				E7B5769B29EDD85F00F01FA8 /* SwiftLint */,
 				E7B5768129E47EBD00F01FA8 /* Frameworks */,
 				E7B5768229E47EBD00F01FA8 /* Resources */,
-				E7B5769B29EDD85F00F01FA8 /* SwiftLint */,
 				5BB0BF9FECDF620ED839EA26 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -416,7 +413,6 @@
 				E70920F92A12AE3900AFE32D /* DetailViewController.swift in Sources */,
 				E7B576EC29FE6EEE00F01FA8 /* MovieCell.swift in Sources */,
 				E70920FB2A12B2EE00AFE32D /* DetailTableViewPresenter.swift in Sources */,
-				E76409B22A3714690054E28B /* Localization.swift in Sources */,
 				E7C060B72A350B7F008D5C57 /* Genres.swift in Sources */,
 				E7B5768829E47EBD00F01FA8 /* AppDelegate.swift in Sources */,
 				E7C060B32A350B5E008D5C57 /* Film.swift in Sources */,
