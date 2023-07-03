@@ -28,6 +28,7 @@
 		E7C060B32A350B5E008D5C57 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C060B22A350B5E008D5C57 /* Film.swift */; };
 		E7C060B52A350B6F008D5C57 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C060B42A350B6F008D5C57 /* Countries.swift */; };
 		E7C060B72A350B7F008D5C57 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C060B62A350B7F008D5C57 /* Genres.swift */; };
+		E7ECC3FB2A5362600013097A /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ECC3FA2A5362600013097A /* MoviesService.swift */; };
 		E7FD0A8D2A0905EB00D576B1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FD0A8C2A0905EB00D576B1 /* Router.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		E7C060B22A350B5E008D5C57 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		E7C060B42A350B6F008D5C57 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		E7C060B62A350B7F008D5C57 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
+		E7ECC3FA2A5362600013097A /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 		E7FD0A8C2A0905EB00D576B1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,7 +237,7 @@
 				E760E5E92A39004200B0FAC8 /* DataRequest.swift */,
 				E7B576F329FFA90000F01FA8 /* NetworkService.swift */,
 				E760E5E72A38F41500B0FAC8 /* ErrorResponse.swift */,
-				E760E5EB2A3A4CA100B0FAC8 /* MoviesSearchRequest.swift */,
+				E7ECC3FC2A5364CB0013097A /* MoviesRequest */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -257,6 +259,15 @@
 				E7C060B62A350B7F008D5C57 /* Genres.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E7ECC3FC2A5364CB0013097A /* MoviesRequest */ = {
+			isa = PBXGroup;
+			children = (
+				E760E5EB2A3A4CA100B0FAC8 /* MoviesSearchRequest.swift */,
+				E7ECC3FA2A5362600013097A /* MoviesService.swift */,
+			);
+			path = MoviesRequest;
 			sourceTree = "<group>";
 		};
 		E7FD0A8B2A0905DC00D576B1 /* Router */ = {
@@ -408,6 +419,7 @@
 				E764E8DE2A35F1C30027798C /* UIFontExtension.swift in Sources */,
 				E7B5768C29E47EBD00F01FA8 /* MainTableViewController.swift in Sources */,
 				E70920F92A12AE3900AFE32D /* DetailViewController.swift in Sources */,
+				E7ECC3FB2A5362600013097A /* MoviesService.swift in Sources */,
 				E7B576EC29FE6EEE00F01FA8 /* MovieCell.swift in Sources */,
 				E70920FB2A12B2EE00AFE32D /* DetailTableViewPresenter.swift in Sources */,
 				E7C060B72A350B7F008D5C57 /* Genres.swift in Sources */,

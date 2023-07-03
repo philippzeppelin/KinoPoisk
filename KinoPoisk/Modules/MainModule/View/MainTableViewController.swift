@@ -54,7 +54,7 @@ extension MainTableViewController {
     }
 
     private func setupNavigationController() {
-        navigationItem.title = Localization.navBarTitle // localization
+        navigationItem.title = Localization.navBarTitle
         navigationController?.navigationBar.backgroundColor = .black
         navigationController?.navigationBar.barTintColor = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -76,9 +76,8 @@ extension MainTableViewController: MainTableViewProtocol {
 // MARK: - UITableViewDataSource
 extension MainTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        guard let moviesCount = presenter?.films.count else { return 30 }
-//        return moviesCount
-        return 30
+        guard let moviesCount = presenter?.films.count else { return 30 }
+        return moviesCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,40 +85,42 @@ extension MainTableViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-//        if let movie = presenter?.films[indexPath.row] {
-//            let posterImageView: MovieCell.Content?
-//
-//            if let posterUrl = URL(string: movie.posterUrl) {
-//                posterImageView = .imageURL(posterUrl)
-//            } else {
-////                posterImageView = nil
-//                print("Out of data")
-//            }
-//
-//            cell.configure(.init(
-//                movieNameRu: movie.nameRu,
-//                movieNameEn: "\(movie.nameEn ?? "") (\(movie.year))",
-//                rating: movie.rating,
-//                movieLength: movie.filmLength,
-//                ratingVoteCount: "\(movie.ratingVoteCount)",
-//                posterImageView: posterImageView,
-//                countries: movie.allCountries,
-//                genres: movie.allGenres
-//                ))
-//
-//            // TODO: узнать куда можно впендюрить
-////            guard let ratingColor = Double(movie.rating) else { return }
-////            switch movie.rating {
-////            case 0..<5:  rating.textColor = UIColor(.red)
-////            case 7...10: cell.rating.textColor = .green
-////            default: cell.rating.textColor = .gray
-////            }
-//        } else {
-//            print("Ячейки не заполнились")
-//        }
+        if let movie = presenter?.films[indexPath.row] {
+            let posterImageView: MovieCell.Content?
 
-        cell.textLabel?.text = "MovieName"
-        cell.textLabel?.textColor = .white
+            if let posterUrl = URL(string: movie.posterUrl) {
+                posterImageView = .imageURL(posterUrl)
+            } else {
+                posterImageView = nil
+                print("Out of data")
+            }
+
+            cell.configure(.init(
+                movieNameRu: movie.nameRu,
+                movieNameEn: "\(movie.nameEn ?? "") (\(movie.year))",
+                rating: movie.rating,
+                movieLength: movie.filmLength,
+                ratingVoteCount: "\(movie.ratingVoteCount)",
+                posterImageView: posterImageView,
+                countries: movie.allCountries,
+                genres: movie.allGenres
+            ))
+
+            //            // TODO: узнать куда можно впендюрить
+            ////            guard let ratingColor = Double(movie.rating) else { return }
+            ////            switch movie.rating {
+            ////            case 0..<5:  rating.textColor = UIColor(.red)
+            ////            case 7...10: cell.rating.textColor = .green
+            ////            default: cell.rating.textColor = .gray
+            ////            }
+            //        } else {
+            //            print("Ячейки не заполнились")
+            //        }
+
+            //            cell.textLabel?.text = "MovieName"
+            //            cell.textLabel?.textColor = .white
+
+        }
         return cell
     }
 }

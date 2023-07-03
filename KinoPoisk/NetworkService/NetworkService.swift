@@ -8,18 +8,15 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func request<T: DataRequestProtocol>(dataRequest: T, completion: @escaping (Result<T.Response, ErrorResponse>) -> Void)
-}
-
-extension NetworkServiceProtocol {
-    func getMovies(page: Int, completion: @escaping (Result<Movies, ErrorResponse>) -> Void) {
-        request(dataRequest: MoviesRequest(page: page), completion: completion)
-    }
+    func request<T: Decodable>(dataRequest: any DataRequestProtocol, completion: @escaping (Result<T, ErrorResponse>) -> Void)
 }
 
 final class NetworkService: NetworkServiceProtocol {
-    func request<T: DataRequestProtocol>(dataRequest: T, completion: @escaping (Result<T.Response, ErrorResponse>) -> Void) {
+//    func request<T: DataRequestProtocol>(dataRequest: T, completion: @escaping (Result<T.Response, ErrorResponse>) -> Void) {
+    func request<T: Decodable>(dataRequest: any DataRequestProtocol,
+                               completion: @escaping (Result<T, ErrorResponse>) -> Void) {
         guard let url = URL(string: dataRequest.url) else { return }
+
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = dataRequest.header
         request.httpMethod = dataRequest.method.rawValue
@@ -28,7 +25,7 @@ final class NetworkService: NetworkServiceProtocol {
             if error != nil {
                 completion(.failure(.apiError))
                 return
-            } // запросить у Бадди как сделать != нил
+            }
 
             guard let response = response as? HTTPURLResponse,
                   response.statusCode == 200 else {
@@ -42,7 +39,12 @@ final class NetworkService: NetworkServiceProtocol {
             }
 
             do {
-                try completion(.success(dataRequest.decode(data)))
+                let decodedData = try dataRequest.decode(data) as? T
+                if let decodedData = decodedData {
+                    completion(.success(decodedData))
+                } else {
+                    completion(.failure(.serializationError))
+                }
             } catch {
                 completion(.failure(.noData))
             }
