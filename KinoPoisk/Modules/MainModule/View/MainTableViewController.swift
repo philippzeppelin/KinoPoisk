@@ -54,7 +54,7 @@ extension MainTableViewController {
     }
 
     private func setupNavigationController() {
-        navigationItem.title = Localization.navigationBarTitle.localized // localization
+        navigationItem.title = Localization.navBarTitle // localization
         navigationController?.navigationBar.backgroundColor = .black
         navigationController?.navigationBar.barTintColor = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -76,49 +76,50 @@ extension MainTableViewController: MainTableViewProtocol {
 // MARK: - UITableViewDataSource
 extension MainTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let moviesCount = presenter?.films.count else { return 0 }
-        return moviesCount
+//        guard let moviesCount = presenter?.films.count else { return 30 }
+//        return moviesCount
+        return 30
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.cellIdentifier,
-                                                       for: indexPath) as? MovieCell else { return UITableViewCell() }
-//        guard let film = presenter?.films[indexPath.row] else { return cell }
-
-//        cell.backgroundColor = .red // UIColor(red: 16/255, green: 14/255, blue: 15/255, alpha: 1.0) // TODO: сделать в этой ветке
-//        cell.selectionStyle = .none
-
-        if let movie = presenter?.films[indexPath.row] {
-            let posterImageView: MovieCell.Content?
-
-            if let posterUrl = URL(string: movie.posterUrl) {
-                posterImageView = .imageURL(posterUrl)
-            } else {
-                posterImageView = nil
-            }
-
-            cell.configure(.init(
-                movieNameRu: movie.nameRu,
-                movieNameEn: "\(movie.nameEn ?? "") (\(movie.year))",
-                rating: movie.rating,
-                movieLength: movie.filmLength,
-                ratingVoteCount: "\(movie.ratingVoteCount)",
-                posterImageView: posterImageView,
-                countries: movie.allCountries,
-                genres: movie.allGenres
-                ))
-
-            // TODO: узнать куда можно впендюрить
-//            guard let ratingColor = Double(movie.rating) else { return }
-//            switch movie.rating {
-//            case 0..<5:  rating.textColor = UIColor(.red)
-//            case 7...10: cell.rating.textColor = .green
-//            default: cell.rating.textColor = .gray
-//            }
-        } else {
-            print("Ячейки не заполнились")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.cellIdentifier, for: indexPath) as? MovieCell else {
+            return UITableViewCell()
         }
 
+//        if let movie = presenter?.films[indexPath.row] {
+//            let posterImageView: MovieCell.Content?
+//
+//            if let posterUrl = URL(string: movie.posterUrl) {
+//                posterImageView = .imageURL(posterUrl)
+//            } else {
+////                posterImageView = nil
+//                print("Out of data")
+//            }
+//
+//            cell.configure(.init(
+//                movieNameRu: movie.nameRu,
+//                movieNameEn: "\(movie.nameEn ?? "") (\(movie.year))",
+//                rating: movie.rating,
+//                movieLength: movie.filmLength,
+//                ratingVoteCount: "\(movie.ratingVoteCount)",
+//                posterImageView: posterImageView,
+//                countries: movie.allCountries,
+//                genres: movie.allGenres
+//                ))
+//
+//            // TODO: узнать куда можно впендюрить
+////            guard let ratingColor = Double(movie.rating) else { return }
+////            switch movie.rating {
+////            case 0..<5:  rating.textColor = UIColor(.red)
+////            case 7...10: cell.rating.textColor = .green
+////            default: cell.rating.textColor = .gray
+////            }
+//        } else {
+//            print("Ячейки не заполнились")
+//        }
+
+        cell.textLabel?.text = "MovieName"
+        cell.textLabel?.textColor = .white
         return cell
     }
 }
@@ -142,5 +143,11 @@ extension MainTableViewController: UITableViewDelegate {
         if !presenter.isFetching {
             presenter.beginFetch()
         }
+    }
+}
+
+extension MainTableViewController {
+    enum Localization {
+        static let navBarTitle: String = NSLocalizedString("Navigation_Bar_Title", comment: "NavigationBar title")
     }
 }
